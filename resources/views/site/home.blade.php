@@ -2,7 +2,7 @@
 <html>
 @include('site.parts.head')
 <body>
-<div class="xsayt">
+<div class="x-site">
 @include('site.parts.header')
 <div class="container">
 @yield('content')

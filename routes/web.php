@@ -13,8 +13,10 @@ use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DesignerController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/category', [HomeController::class, 'category']);
 
 /* Route::get('/', function () {
     return view('welcome');
@@ -97,6 +99,14 @@ Route::group(['middleware' => ['dashboard']], function () {
         Route::post('/users/create', [UserController::class, 'store'])->middleware('can:users_create')->name('users.store');
         Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware('can:users_edit')->name('users.edit');
         Route::post('/users/{user}/edit', [UserController::class, 'update'])->middleware('can:users_edit')->name('users.update');
+
+        Route::get('/products', [ProductController::class, 'index'])->middleware('can:product_view')->name('products.index');
+        Route::get('/products/create', [ProductController::class, 'create'])->middleware('can:product_create')->name('products.create');
+        Route::post('/products/create', [ProductController::class, 'store'])->middleware('can:product_create')->name('products.store');
+        Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware('can:product_edit')->name('products.edit');
+        Route::post('/products/{product}/edit', [ProductController::class, 'update'])->middleware('can:product_edit')->name('products.update');
+
+        Route::post('/products/upload-image', [ProductController::class, 'upload'])->name('products.image');
 
     });
 });

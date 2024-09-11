@@ -4,3 +4,4 @@
 <link href="{{asset('/back/assets/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('/back/assets/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('/back/assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+<meta name="csrf-token" content="{{ csrf_token() }}">

@@ -18,3 +18,5 @@
 <script src="{{asset('/back/assets/js/custom/widgets.js')}}"></script>
 <script src="{{asset('/back/assets/js/custom/apps/chat/chat.js')}}"></script>
 <script src="{{asset('/back/assets/js/custom/utilities/modals/users-search.js')}}"></script>
+
+@stack('js')

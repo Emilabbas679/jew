@@ -5,5 +5,6 @@
 <link rel="icon" href="/theme/site/images/favicon.ico" type="image/x-icon" />
 <link media="screen" href="{{asset('/css/style.css?v='.time())}}" type="text/css" rel="stylesheet" />
 <link media="screen" href="{{asset('/css/responsive.css?v='.time())}}" type="text/css" rel="stylesheet" />
+@yield('css')
 <script type="text/javascript" src="{{asset('/js/jquery.js?v='.time())}}"></script>
 </head>

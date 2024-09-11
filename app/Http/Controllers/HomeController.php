@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         return view('site.index');
     }
+
+    public function category()
+    {
+        return view('site.category');
+    }
 }
