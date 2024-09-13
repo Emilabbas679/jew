@@ -159,6 +159,52 @@
                         </div>
                     </div>
                 </div>
+                <div class="j-filter-item">
+                    <div class="j-filter-a">
+                        <div class="j-filter-z j-designer">
+                            <div class="j-value"></div>
+                            <div class="j-placeholder">Designers</div>
+                            <span class="j-down"></span>
+                            <span class="j-close"></span>
+                        </div>
+                        <div class="j-md">
+                            <div class="j-designer-list">
+                                <ul id="designer-list">
+                                    <li>
+                                        <input id="d1" type="checkbox" name="color" value="d1">
+                                        <label for="d1">Adina Reyter</label>
+                                    </li>
+                                    <li>
+                                        <input id="d2" type="checkbox" name="color" value="d2">
+                                        <label for="d2">Agmes</label>
+                                    </li>
+                                    <li>
+                                        <input id="d3" type="checkbox" name="color" value="d3">
+                                        <label for="d3">Alighieri</label>
+                                    </li>
+                                    <li>
+                                        <input id="d4" type="checkbox" name="color" value="d4">
+                                        <label for="d4">Aliita</label>
+                                    </li>
+                                    <li>
+                                        <input id="d5" type="checkbox" name="color" value="d5">
+                                        <label for="d5">Balenciaga</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="j-filter-item">
+                    <div class="j-select-a">
+                        <select class="j-select j-sort" name="sort">
+                            <option></option>
+                            <option>Popular</option>
+                            <option>Alpabetic</option>
+                            <option>Price</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="product-list">
@@ -392,7 +438,7 @@
 
 @section('js')
 <script type="text/javascript" src="{{asset('/js/select2.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+<script type="text/javascript" src="{{asset('/js/nouislider.min.js')}}"></script>
 
 <script>
     $(document).ready(function() {
@@ -414,6 +460,13 @@
             minimumResultsForSearch: -1,
             width: '100%',
             placeholder: "Material",
+            allowClear: true
+        });
+
+        $('.j-sort').select2({
+            minimumResultsForSearch: -1,
+            width: '100%',
+            placeholder: "Sort",
             allowClear: true
         });
 
@@ -471,14 +524,39 @@
             }
         }
 
+        const checkDesigner = function() {
+            if($('#designer-list input[type="checkbox"]').is(':checked')) {
+
+                var labels =$('#designer-list input[type="checkbox"]:checked').map(function() {
+                    return $(this).next('label').text(); 
+                }).get(); 
+
+                $('.j-designer').children('.j-down').hide();
+                $('.j-designer').children('.j-close').show();
+                $('.j-designer').children('.j-placeholder').hide();
+                $('.j-designer').children('.j-value').text(labels.join(', ')).show();
+            } else {
+                $('.j-designer').children('.j-down').show();
+                $('.j-designer').children('.j-close').hide();
+                $('.j-designer').children('.j-placeholder').show();
+                $('.j-designer').children('.j-value').text('').hide();
+            }
+        }
+
         $('.j-md').on('click', function(e) {
             e.stopPropagation()
         })
 
         let isPriceOpen = false;
+        let isColorOpen = false;
+        let isDesignerOpen = false;
 
         $('.j-price').on('click', function(e) {
             e.stopPropagation();
+            $('.j-md').hide()
+            $('.j-filter-z').removeClass('opened');
+            isColorOpen = false;
+            isDesignerOpen = false
             isPriceOpen = !isPriceOpen;
            if(!isPriceOpen) {
             $(this).removeClass('opened')
@@ -497,12 +575,14 @@
             $('.j-price').children('.j-placeholder').text('Price range');
             $('.j-price').children('.j-down').css('display', 'block')
             $('.j-price').children('.j-close').css('display', 'none')
-        });
-
-        let isColorOpen = false;
+        });  
 
         $('.j-color').on('click', function(e) {
             e.stopPropagation();
+            $('.j-md').hide()
+            $('.j-filter-z').removeClass('opened');
+            isPriceOpen = false;
+            isDesignerOpen = false;
             isColorOpen = !isColorOpen;
            if(!isColorOpen) {
             $(this).removeClass('opened')
@@ -529,6 +609,38 @@
             checkColor();
         })
 
+        $('.j-designer').on('click', function(e) {
+            e.stopPropagation();
+            $('.j-md').hide()
+            $('.j-filter-z').removeClass('opened');
+            isPriceOpen = false;
+            isColorOpen = false;
+            isDesignerOpen = !isDesignerOpen;
+           if(!isDesignerOpen) {
+            $(this).removeClass('opened')
+            $(this).next('.j-md').hide()
+           } else {
+            $(this).addClass('opened')
+            $(this).next('.j-md').show()
+           }
+           checkDesigner();
+            
+        })
+
+        $('.j-designer').on('click', '.j-close', function(e) {
+            e.stopPropagation();
+            $('#designer-list input[type="checkbox"]').prop('checked', false);
+
+            $('.j-designer').children('.j-down').show();
+            $('.j-designer').children('.j-close').hide();
+            $('.j-designer').children('.j-placeholder').show();
+            $('.j-designer').children('.j-value').text('').hide();
+        })
+
+        $('#designer-list').on('click', 'li', function () {
+            checkDesigner();
+        })
+
         $(document).on('click', function() {
             if(isPriceOpen) {
                 isPriceOpen = false;
@@ -541,6 +653,13 @@
                 isColorOpen = false;
                 checkColor();
                 $('.j-color').removeClass('opened');
+                $('.j-md').hide()
+            }
+
+            if(isDesignerOpen) {
+                isDesignerOpen = false;
+                checkDesigner();
+                $('.j-designer').removeClass('opened');
                 $('.j-md').hide()
             }
         });
