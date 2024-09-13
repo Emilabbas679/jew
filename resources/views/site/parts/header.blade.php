@@ -8,16 +8,19 @@
                 </div>
                 <div class="top-menu">
                     <ul>
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="/">How it works</a></li>
-                        <li><a href="/">About us</a></li>
-                        <li><a href="/">Jewelry</a></li>
+                        <li class="active"><a href="{{route('home')}}">{{__('site.home')}}</a></li>
+                        <li><a href="/">{{__('site.how_it_works')}}</a></li>
+                        <li><a href="/">{{__('site.about_us')}}</a></li>
+                        <li><a href="/">{{__('site.jewelry')}}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="header-right">
                 <div class="language">
                     <div class="selected-language">Eng</div>
+
+{{--                     Dil deyisme linki--}}
+{{--                    {{route('locale', 'az')}}--}}
                 </div>
                 <div class="h-items">
                     <div class="h-item h-search">

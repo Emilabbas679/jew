@@ -15,8 +15,12 @@ use App\Http\Controllers\Admin\DesignerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/category', [HomeController::class, 'category']);
+Route::get('/404', [HomeController::class, 'notFound']);
+Route::get('/no-product', [HomeController::class, 'noProduct']);
+Route::get('/product', [HomeController::class, 'product']);
+Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 /* Route::get('/', function () {
     return view('welcome');
@@ -24,6 +28,7 @@ Route::get('/category', [HomeController::class, 'category']);
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

@@ -1,0 +1,22 @@
+<?php 
+ return [
+"jewelry" => "Jewelry",
+"about_us" => "Haqqımızda",
+"how_it_works" => "Necə işləyirik",
+"home" => "Ana səhifə",
+"register_page_title" => "Register",
+"login_page_title" => "Daxil ol",
+"confirm_password_placeholder" => "Confirm password",
+"last_name_placeholder" => "Last name",
+"first_name_placeholder" => "First name",
+"not_found" => "Məlumat tapılmadı",
+"register_account" => "Create an account",
+"login_desc" => "Save time with fast checkout, track your orders and get updates on new arrivals and special sales.",
+"register" => "Register",
+"login_btn" => "Daxil ol",
+"forgot_pass?" => "Forgot password?",
+"password_placeholder" => "Password",
+"email_placeholder" => "Enter e-mail address",
+"login" => "Daxil ol",
+"reset" => "Your password has been reset.",
+];

@@ -11,7 +11,7 @@ blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
 html{height:100%;min-height:100%;}
-body{min-height:100%;}
+body{min-height:100%; background-color:#F8FAFF;}
 html,html a{-webkit-font-smoothing:antialiased}
 body,select,input,textarea,button{font:normal 14px/1.5 'Libre Franklin', Arial, Helvetica, sans-serif; color:#13151A;outline:none}
 a{outline:none;color:#13151A;text-decoration:none}
@@ -76,6 +76,7 @@ strong,b{font-weight:700}
 .j-head .j-title {font-size:36px; line-height: 44px; color: #0B0139; font-weight: 600;}
 .j-head .j-desc {text-align:center; color: #383D47; text-shadow: 0px 8px 12px rgba(23, 30, 38, 0.08); font-size:16px; line-height: 24px; letter-spacing: 0.4px; margin-top: 8px;}
 .j-head .j-count {text-align:center; color: #383D47; text-shadow: 0px 8px 12px rgba(23, 30, 38, 0.08); font-size:14px; line-height: 20px; letter-spacing: 0.5px; margin-top: 4px;}
+.mb-0 {margin-bottom: 0 !important}
 
 /* Header */
 .header {position: fixed; top:0; left: 0; z-index: 50; width: 100%; background-color: #fff; border-bottom: 1px solid rgba(0, 0, 0, 0.08)}
@@ -252,9 +253,6 @@ strong,b{font-weight:700}
 .j-designer-list ul li label:after {content: ""; position:absolute; top:0; bottom:0; background-image: url(../images/check2.svg); display:block; width:20px; height:20px; top:0; bottom:0; left:0; margin: auto; opacity:0; z-index:2}
 .j-designer-list ul li input:checked + label:after {opacity:1;}
 
-
-
-
 /* Range slider */
 .noUi-target {position:relative; background: #D7DAE0;}
 .noUi-horizontal{height:2px}
@@ -269,9 +267,30 @@ strong,b{font-weight:700}
 .noUi-handle:before {content: ""; width:10px; height:10px;background-color: #fff; border-radius:50%; display:block;}
 .noUi-txt-dir-rtl.noUi-horizontal .noUi-origin{left:0;right:auto}.noUi-vertical .noUi-origin{width:0}.noUi-horizontal .noUi-origin{height:0}.noUi-touch-area{height:100%;width:100%}.noUi-state-tap .noUi-connect,.noUi-state-tap .noUi-origin{-webkit-transition:transform .3s;transition:transform .3s}.noUi-state-drag *{cursor:inherit!important}.noUi-vertical{width:18px}.noUi-connects{border-radius:3px}.noUi-draggable{cursor:ew-resize}.noUi-vertical .noUi-draggable{cursor:ns-resize}.noUi-vertical .noUi-handle:after,.noUi-vertical .noUi-handle:before{width:14px;height:1px;left:6px;top:14px}.noUi-vertical .noUi-handle:after{top:17px}[disabled] .noUi-connect{background:#B8B8B8}[disabled] .noUi-handle,[disabled].noUi-handle,[disabled].noUi-target{cursor:not-allowed}.noUi-pips,.noUi-pips *{-moz-box-sizing:border-box;box-sizing:border-box}.noUi-pips{position:absolute;color:#999}.noUi-value{position:absolute;white-space:nowrap;text-align:center}.noUi-value-sub{color:#ccc;font-size:10px}.noUi-marker{position:absolute;background:#CCC}.noUi-marker-sub{background:#AAA}.noUi-marker-large{background:#AAA}.noUi-pips-horizontal{padding:10px 0;height:80px;top:100%;left:0;width:100%}.noUi-value-horizontal{-webkit-transform:translate(-50%,50%);transform:translate(-50%,50%)}.noUi-rtl .noUi-value-horizontal{-webkit-transform:translate(50%,50%);transform:translate(50%,50%)}.noUi-marker-horizontal.noUi-marker{margin-left:-1px;width:2px;height:5px}.noUi-marker-horizontal.noUi-marker-sub{height:10px}.noUi-marker-horizontal.noUi-marker-large{height:15px}.noUi-pips-vertical{padding:0 10px;height:100%;top:0;left:100%}.noUi-value-vertical{-webkit-transform:translate(0,-50%);transform:translate(0,-50%);padding-left:25px}.noUi-rtl .noUi-value-vertical{-webkit-transform:translate(0,50%);transform:translate(0,50%)}
 
+/* Login, Register */
+.lg-page {padding: 80px 0; background-color: #F8FAFF;}
+.lg-page .lg-page-wrap {max-width: 648px; margin: 0 auto; background-color: #fff; box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04);}
+.lg-page-wrap .lg-form {padding: 48px 40px;}
+.lg-title {margin-bottom:16px; font-size:36px; font-weight: 600; line-height:44px;}
+.lg-input {position:relative; margin-bottom:16px;}
+.lg-input input {display:block; font-size: 16px; line-height: 24px; letter-spacing: 0.4px; padding: 12px 8px 11px; width:100%; border:0; border-bottom: 1px solid #D5DCEB}
+.lg-input.w-icon input {padding-right: 36px;}
+.lg-input .show-pass {position:absolute; top:0; bottom:0; margin: auto; width:20px; height: 20px; right: 8px; background-image: url(../images/eye.svg); cursor:pointer;}
+.fg-pass {text-align:right; margin-top: -4px; margin-bottom:16px;}
+.fg-pass a {display:inline-block; vertical-align: top; font-size:14px; line-height: 20px; font-weight: 500; text-decoration: underline;}
+.lg-button button, .lg-button a {display:block; width:240px; padding: 12px 20px; border-radius:2px; background-color: #5B46C2; color: #fff; font-size:16px; line-height: 24px; font-weight: 500; text-align:center; border:0; cursor:pointer}
+.g-register {margin-top: 40px;}
+.lg-text {color: #383D47; font-size:14px; line-height: 20px; letter-spacing: 0.5px; margin-bottom:16px;}
+.lg-text a {text-decoration: underline;}
 
-
-
-
-
-
+/* Not Found 404 */
+.not-found {padding: 210px 0; background-color:#F8FAFF;}
+.not-found .not-found-b {width: 312px; margin: 0 auto; text-align:center;}
+.not-found-b .nf-i {display:inline-block; vertical-align: top; width:80px; height: 64px; margin-bottom:12px; background-image: url(../images/404.svg)}
+.not-found-b .nf-text {font-size:18px; line-height: 26px; color: #000; font-weight: 600; letter-spacing: 0.15px; margin-bottom:12px}
+.not-found-b .nf-desc {font-size:14px; line-height: 20px; color: #383D47; letter-spacing: 0.5px; margin-bottom:12px}
+.nf-button a {display:inline-block; vertical-align: top; color: #fff; font-size:16px; line-height:24px; font-weight: 500; padding: 12px 20px; border-radius:2px; background-color: #5B46C2;}
+.no-product {width: 312px; margin: 0 auto; text-align:center; padding: 140px 0 250px}
+.no-product .np-i {display:inline-block; vertical-align: top; width:64px; height: 64px; margin-bottom:12px; background-image: url(../images/no-p.svg)}
+.no-product .np-text {font-size:18px; line-height: 26px; color: #000; font-weight: 600; letter-spacing: 0.15px; margin-bottom:12px}
+.no-product .np-desc {font-size:14px; line-height: 20px; color: #383D47; letter-spacing: 0.5px;}

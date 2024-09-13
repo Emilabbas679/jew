@@ -33,5 +33,10 @@ $(document).ready(function(){
     $('.product-fav').on('click', function() {
         $(this).hasClass('active') ? $(this).removeClass('active') : $(this).addClass('active')
     });
+
+    $('.show-pass').on('click', function() {
+       const fieldType =  $(this).prev('.s-pass').attr('type') === 'password' ? 'text' : 'password';
+        $(this).prev('.s-pass').attr('type', fieldType);
+    })
 	
 });

@@ -13,26 +13,35 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
+        if (auth()->check())
+            return redirect()->route('home');
         return view('auth.login');
     }
 
     public function login(Request $request)
     {
+        if (auth()->check())
+            return redirect()->route('home');
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials))
             return redirect()->intended('/admin');
-        return redirect()->back()->withErrors(['email' => 'Giriş bilgileri geçersiz.']);
+        return redirect()->back()->withErrors(['email' => __('site.not_found')]);
     }
 
     public function showRegisterForm()
     {
+        if (auth()->check())
+            return redirect()->route('home');
         return view('auth.register');
     }
 
     public function register(Request $request)
     {
+        if (auth()->check())
+            return redirect()->route('home');
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
@@ -48,12 +57,17 @@ class AuthController extends Controller
         ]);
         $user->assignRole('user');
         Auth::login($user);
-        return redirect()->intended('dashboard');
+        return redirect()->intended('/');
     }
 
     public function logout()
     {
         Auth::logout();
         return redirect('/login');
+    }
+
+    public function forgot()
+    {
+        return view('auth.forgot');
     }
 }
