@@ -8,10 +8,10 @@
                 </div>
                 <div class="top-menu">
                     <ul>
-                        <li class="active"><a href="{{route('home')}}">{{__('site.home')}}</a></li>
+                        <li  @if(\Request::route()->getName() == 'home') class="active " @endif><a href="{{route('home')}}">{{__('site.home')}}</a></li>
                         <li><a href="/">{{__('site.how_it_works')}}</a></li>
                         <li><a href="/">{{__('site.about_us')}}</a></li>
-                        <li><a href="/">{{__('site.jewelry')}}</a></li>
+                        <li  @if(\Request::route()->getName() == 'products') class="active " @endif><a href="{{route('products')}}">{{__('site.jewelry')}}</a></li>
                     </ul>
                 </div>
             </div>

@@ -5,350 +5,178 @@
     <section class="products-page">
         <div class="centered">
             <div class="j-head">
-                <h2 class="j-title">Rings jewelry</h2>
-                <div class="j-count">Showing all 15 results</div>
+                <h2 class="j-title">{{__('site.products')}}</h2>
+                <div class="j-count">Showing all {{$products->total()}} results</div>
             </div>
-            <div class="j-filter">
-                <div class="j-filter-list">
-                    <div class="j-filter-item">
-                        <div class="j-select-a">
-                            <select class="j-select j-cat" name="category_id">
-                                <option></option>
-                                @foreach($categories as $item)
-                                <option value="{{$item->id}}" @if($request->has('category_id') and $request->category_id == $item->id) selected @endif>{{$item->title}}</option>
-                                @endforeach
+            <form id="filterForm">
+                <div class="j-filter">
+                    <div class="j-filter-list">
+                        <div class="j-filter-item">
+                            <div class="j-select-a">
+                                <select class="j-select j-cat" name="category_id" onchange="this.form.submit()">
+                                    <option></option>
+                                    @foreach($categories as $item)
+                                        <option value="{{$item->id}}" @if($request->has('category_id') and $request->category_id == $item->id) selected @endif>{{$item->title}}</option>
+                                    @endforeach
 
-                            </select>
-                        </div>
-                    </div>
-                    <div class="j-filter-item">
-                        <div class="j-select-a">
-                            <select class="j-select j-sub" name="occasion_id">
-                                <option></option>
-                                @foreach($occasions as $item)
-                                    <option value="{{$item->id}}" @if($request->has('occasion_id') and $request->occasion_id == $item->id) selected @endif>{{$item->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="j-filter-item">
-                        <div class="j-filter-a">
-                            <div class="j-filter-z j-price">
-                                <div class="j-value"></div>
-                                <div class="j-placeholder">Price range</div>
-                                <span class="j-down"></span>
-                                <span class="j-close"></span>
+                                </select>
                             </div>
-                            <div class="j-md">
-                                <div class="j-range">
-                                    <div id="j-slider"></div>
-                                    <div class="j-range-inputs">
-                                        <div class="j-input">
-                                            <div class="j-input-val">
-                                                <span id="range-min">0</span> <span> $</span>
+                        </div>
+                        <div class="j-filter-item">
+                            <div class="j-select-a">
+                                <select class="j-select j-sub" name="occasion_id" onchange="this.form.submit()">
+                                    <option></option>
+                                    @foreach($occasions as $item)
+                                        <option value="{{$item->id}}" @if($request->has('occasion_id') and $request->occasion_id == $item->id) selected @endif>{{$item->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="j-filter-item">
+                            <div class="j-filter-a">
+                                <div class="j-filter-z j-price">
+                                    <div class="j-value"></div>
+                                    <div class="j-placeholder">Price range</div>
+                                    <span class="j-down"></span>
+                                    <span class="j-close"></span>
+                                </div>
+                                <div class="j-md">
+                                    <div class="j-range">
+                                        <div id="j-slider"></div>
+                                        <div class="j-range-inputs">
+                                            <div class="j-input">
+                                                <div class="j-input-val">
+                                                    <span id="range-min">0</span> <span> $</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="j-input">
-                                            <div class="j-input-val">
-                                                <span id="range-max">1000</span>
-                                                <span> $</span>
+                                            <div class="j-input">
+                                                <div class="j-input-val">
+                                                    <span id="range-max">1000</span>
+                                                    <span> $</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="j-filter-item">
-                        <div class="j-select-a">
-                            <select class="j-select j-material" name="material_id">
-                                <option></option>
-                                @foreach($materials as $item)
-                                    <option value="{{$item->id}}" @if($request->has('material_id') and $request->material_id == $item->id) selected @endif>{{$item->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="j-filter-item">
-                        <div class="j-filter-a">
-                            <div class="j-filter-z j-color">
-                                <div class="j-value"></div>
-                                <div class="j-placeholder">Colors</div>
-                                <span class="j-down"></span>
-                                <span class="j-close"></span>
+                        <div class="j-filter-item">
+                            <div class="j-select-a">
+                                <select class="j-select j-material" name="material_id" onchange="this.form.submit()">
+                                    <option></option>
+                                    @foreach($materials as $item)
+                                        <option value="{{$item->id}}" @if($request->has('material_id') and $request->material_id == $item->id) selected @endif>{{$item->title}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="j-md">
-                                <div class="j-color-list">
-                                    <ul id="color-list">
-                                        @foreach($colors as $item)
-                                        <li>
-                                            <input id="{{$item->title}}" type="checkbox" name="color" value="{{$item->id}}">
-                                            <label for="{{$item->title}}">
-                                                <i style="background: {{$item->hex}}; border: {{$item->hex}}"></i><span>{{$item->title}}</span>
-                                            </label>
-                                        </li>
-                                        @endforeach
+                        </div>
+                        <div class="j-filter-item">
+                            <div class="j-filter-a">
+                                <div class="j-filter-z j-color">
+                                    <div class="j-value"></div>
+                                    <div class="j-placeholder">Colors</div>
+                                    <span class="j-down"></span>
+                                    <span class="j-close"></span>
+                                </div>
+                                <div class="j-md">
+                                    <div class="j-color-list">
+                                        <ul id="color-list">
+                                            @foreach($colors as $item)
+                                                <li>
+                                                    <input id="{{$item->title}}" type="checkbox" name="colors[]" @if($request->has('colors') and in_array($item->id, $request->colors)) checked @endif value="{{$item->id}}" onchange="this.form.submit()">
+                                                    <label for="{{$item->title}}">
+                                                        @if($item->id == 12)
+                                                        <i style="background: {{$item->hex}}; "></i><span>{{$item->title}}</span>
+                                                        @else
+                                                            <i style="background-color: {{$item->hex}};  @if($item->id == 4) border-color:#D5DCEB  @else border-color: {{$item->hex}} @endif"></i><span>{{$item->title}}</span>
 
-                                    </ul>
+                                                        @endif
+                                                    </label>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="j-filter-item">
-                        <div class="j-filter-a">
-                            <div class="j-filter-z j-designer">
-                                <div class="j-value"></div>
-                                <div class="j-placeholder">Designers</div>
-                                <span class="j-down"></span>
-                                <span class="j-close"></span>
-                            </div>
-                            <div class="j-md">
-                                <div class="j-designer-list">
-                                    <ul id="designer-list">
-                                        @foreach($designers as $item)
-                                        <li>
-                                            <input id="d{{$item->id}}" type="checkbox" name="designer" value="{{$item->id}}">
-                                            <label for="d{{$item->id}}">{{$item->title}}</label>
-                                        </li>
-                                        @endforeach
+                        <div class="j-filter-item">
+                            <div class="j-filter-a">
+                                <div class="j-filter-z j-designer">
+                                    <div class="j-value"></div>
+                                    <div class="j-placeholder">Designers</div>
+                                    <span class="j-down"></span>
+                                    <span class="j-close"></span>
+                                </div>
+                                <div class="j-md">
+                                    <div class="j-designer-list">
+                                        <ul id="designer-list">
+                                            @foreach($designers as $item)
+                                                <li>
+                                                    <input id="d{{$item->id}}" type="checkbox" name="designers[]"  @if($request->has('designers') and in_array($item->id, $request->designers)) checked @endif value="{{$item->id}}" onchange="this.form.submit()">
+                                                    <label for="d{{$item->id}}">{{$item->title}}</label>
+                                                </li>
+                                            @endforeach
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="j-filter-item">
-                        <div class="j-select-a">
-                            <select class="j-select j-sort" name="sort">
-                                <option></option>
-                                <option>Popular</option>
-                                <option>Alpabetic</option>
-                                <option>Price</option>
-                            </select>
+                        <div class="j-filter-item">
+                            <div class="j-select-a">
+                                <select class="j-select j-sort" name="sort" onchange="this.form.submit()">
+                                    <option></option>
+                                    <option value="1" @if($request->has('sort') and $request->sort == 1) selected @endif>Popular</option>
+                                    <option value="2" @if($request->has('sort') and $request->sort == 3) selected @endif>Price</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
+            @if($products->total() > 0)
             <div class="product-list">
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product1.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Cartier Juste un Clou</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 19.45 /</div>
-                                    <div class="prc-b"> Per Day</div>
+                @foreach($products->items() as $item)
+                    <div class="product-item">
+                        <div class="product-item-a">
+                            <a href="{{route('product', $item->id)}}">
+                                <div class="product-image">
+                                    <img src="{{asset('/storage/'.$item->cover)}}">
+                                    @if($item->sale_price != 0 and $item->sale_price != null)
+                                        <div class="pr-promotion">{{(int) (100-($item->sale_price * 100/$item->price))}}%</div>
+
+                                    @endif
+
                                 </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product5.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Traverse Circles Blue</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 20.50 /</div>
-                                    <div class="prc-b"> Per Day</div>
+                                <div class="product-info">
+                                    <div class="product-title">{{$item->title}}</div>
+                                    <div class="product-price">
+                                        <div class="prc-a">$ @if($item->sale_price != 0 or $item->sale_price != null) {{$item->sale_price}} @else {{$item->price}} @endif/</div>
+                                        <div class="prc-b"> {{__('site.per_day')}}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
+                            </a>
+                            <div class="product-fav"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product6.jpg">
-                                <div class="pr-promotion">50%</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Emerald Shaped Morganite</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 37.00 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product7.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Serpentine Style</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 34.00 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav active"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product8.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Bypass Baguette Eco</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 19.45 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product9.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Forget Me Not Shamrock</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 20.50 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product4.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Van Cleef Red Alhambra</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 28.45 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product10.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">White and Blue</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 20.50 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product7.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Serpentine Style</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 34.00 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav active"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product6.jpg">
-                                <div class="pr-promotion">50%</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Emerald Shaped Morganite</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 37.00 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product5.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Traverse Circles Blue</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 20.50 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-item-a">
-                        <a href="./">
-                            <div class="product-image">
-                                <img src="./images/p/product1.jpg">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-title">Cartier Juste un Clou</div>
-                                <div class="product-price">
-                                    <div class="prc-a">$ 19.45 /</div>
-                                    <div class="prc-b"> Per Day</div>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="product-fav"></div>
-                    </div>
-                </div>
+
+                @endforeach
             </div>
-            <div class="pagination">
-                <ul>
-                    <li><a class="p-prev p-d" href="/"></a></li>
-                    <li><span class="active">1</span></li>
-                    <li><a href="/">2</a></li>
-                    <li><a href="/">3</a></li>
-                    <li><a href="/">4</a></li>
-                    <li><span>...</span></li>
-                    <li><a href="/">24</a></li>
-                    <li><a class="p-next p-d" href="/"></a></li>
-                </ul>
-            </div>
+            @else
+                <div class="product-list">
+                    <div class="no-product">
+                        <div class="np-i"></div>
+                        <div class="np-text">{{__('site.product_not_found')}}</div>
+                        <div class="np-desc">{{__('site.product_not_found_description')}}</div>
+                    </div>
+                </div>
+            @endif
+
+            {!! $products->appends($_GET)->links() !!}
+
+
         </div>
     </section>
     <!-- Products end -->
@@ -588,4 +416,7 @@
 
         });
     </script>
+
+
+
 @endsection

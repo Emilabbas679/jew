@@ -86,9 +86,20 @@ var KTAppEcommerceSaveProduct = function() {
                     console.log('Yükleme hatası:', response); // Hata durumunda sunucudan gelen yanıt
                 },
                 removedfile: function(file) {
-                    $('input.upload_files[data-id="'+file.upload.filename+'"]').remove();
+                    let filename = file.upload && file.upload.filename ? file.upload.filename : file.name;
+                    $('input.upload_files[data-id="'+filename+'"]').remove();
                     var previewElement;
                     return (previewElement = file.previewElement) != null ? previewElement.parentNode.removeChild(previewElement) : void 0;
+                },
+                init: function () {
+                    var myDropzone = this;
+                    existingFiles.forEach(function(file) {
+                        var mockFile = { name: file.name, size: file.size };
+                        myDropzone.emit("addedfile", mockFile);
+                        myDropzone.emit("thumbnail", mockFile, file.url);
+                        myDropzone.emit("complete", mockFile);
+                        myDropzone.files.push(mockFile);
+                    });
                 }
             }), t(), (() => {
                 const e = document.getElementById("kt_ecommerce_add_product_status"),

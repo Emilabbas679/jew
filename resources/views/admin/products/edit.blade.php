@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title', 'Products')
+@section('title', $product->title)
 @section('content')
 
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
@@ -7,9 +7,12 @@
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <div id="kt_content_container" class="container-xxl">
                 @include('admin.flash')
-                <form id="kt_ecommerce_add_product_form"  onsubmit=" getAbouts()" enctype="multipart/form-data" class="form d-flex flex-column flex-lg-row" method="post" action="{{route('products.store')}}">
+                <form id="kt_ecommerce_add_product_form"  onsubmit=" getAbouts()" enctype="multipart/form-data" class="form d-flex flex-column flex-lg-row" method="post" action="{{route('products.update', $product->id)}}">
                     @csrf
                     <div id="hidden_files">
+                        @foreach($files as $file)
+                            <input type='hidden' class='upload_files' name='files[]' data-id='{{$file['filename']}}' value='{{$file['file_url']}}'>
+                        @endforeach
                     </div>
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                         <div class="card card-flush py-4">
@@ -19,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="card-body text-center pt-0">
-                                <style>.image-input-placeholder { background-image: url('{{old('cover', '/back/assets/media/svg/files/blank-image.svg')}}'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('/back/assets/media/svg/files/blank-image-dark.svg'); }</style>
+                                <style>.image-input-placeholder { background-image: url('/storage/{{$product->cover}}'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('/back/assets/media/svg/files/blank-image-dark.svg'); }</style>
                                 <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
                                     <div class="image-input-wrapper w-150px h-150px"></div>
 
@@ -28,7 +31,7 @@
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                         </i>
-                                        <input type="file" name="cover" value="{{old('cover')}}" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="cover" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="avatar_remove" />
                                     </label>
                                     <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
@@ -60,9 +63,9 @@
                             <div class="card-body pt-0">
                                 <select class="form-select mb-2" name="status" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
                                     <option></option>
-                                    <option value="1" @if(old('status') == 1 or old('status') == null) selected @endif>Published</option>
-                                    <option value="2" @if(old('status') == 2) selected @endif>Inactive</option>
-                                    <option value="3" @if(old('status') == 3) selected @endif>Draft</option>
+                                    <option value="1" @if($product->status == 1) selected @endif>Published</option>
+                                    <option value="2" @if($product->status == 2) selected @endif>Inactive</option>
+                                    <option value="3" @if($product->status == 3) selected @endif>Draft</option>
                                 </select>
                                 <div class="text-muted fs-7">Set the product status.</div>
                                 <div class="d-none mt-10">
@@ -82,7 +85,7 @@
                                 <select class="form-select mb-2" name="category_id" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" >
                                     <option></option>
                                     @foreach($categories as $item)
-                                    <option value="{{$item->id}}" @if(old('category_id') == $item->id) selected @endif>{{$item->title}}</option>
+                                        <option value="{{$item->id}}" @if($product->category_id == $item->id) selected @endif>{{$item->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -92,7 +95,7 @@
                                 <select class="form-select mb-2" name="material_id" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" >
                                     <option></option>
                                     @foreach($materials as $item)
-                                        <option value="{{$item->id}}" @if(old('material_id') == $item->id) selected @endif>{{$item->title}}</option>
+                                        <option value="{{$item->id}}" @if($product->material_id == $item->id) selected @endif>{{$item->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -101,7 +104,7 @@
                                 <select class="form-select mb-2" name="color_id" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" >
                                     <option></option>
                                     @foreach($colors as $item)
-                                        <option value="{{$item->id}}" @if(old('color_id') == $item->id) selected @endif>{{$item->title}}</option>
+                                        <option value="{{$item->id}}" @if($product->color_id == $item->id) selected @endif>{{$item->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -110,7 +113,7 @@
                                 <select class="form-select mb-2" name="occasion_id" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" >
                                     <option></option>
                                     @foreach($occasions as $item)
-                                        <option value="{{$item->id}}" @if(old('occasion_id') == $item->id) selected @endif>{{$item->title}}</option>
+                                        <option value="{{$item->id}}" @if($product->occasion_id == $item->id) selected @endif>{{$item->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -120,14 +123,14 @@
                                 <select class="form-select mb-2" name="designer_id" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" >
                                     <option></option>
                                     @foreach($designers as $item)
-                                        <option value="{{$item->id}}" @if(old('designer_id') == $item->id) selected @endif>{{$item->title}}</option>
+                                        <option value="{{$item->id}}" @if($product->designer_id == $item->id) selected @endif>{{$item->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="card-body pt-0">
                                 <label class="form-label">Size</label>
-                                <input type="number" step="0.001" name="size" class="form-control mb-2" placeholder="Product size" value="{{old('size',0)}}" />
+                                <input type="number" step="0.001" name="size" class="form-control mb-2" placeholder="Product size" value="{{old('size',$product->size)}}" />
                             </div>
                         </div>
                     </div>
@@ -145,14 +148,14 @@
                                             <div class="card-body pt-0">
                                                 <div class="mb-10 fv-row">
                                                     <label class="required form-label">Product Name {{$lang['Name']}}</label>
-                                                    <input type="text" name="title[{{$lang['code']}}]" class="form-control mb-2" placeholder="Product name {{$lang['code']}}" value="{{old('title.'.$lang['code'])}}" />
+                                                    <input type="text" name="title[{{$lang['code']}}]" class="form-control mb-2" placeholder="Product name {{$lang['code']}}" value="{{old('title'.$lang['code'], $product->getTranslation('title', $lang['code']))}}" />
                                                 </div>
                                                 <div>
                                                     <label class="form-label">Description {{$lang['Name']}}</label>
-                                                    <div id="kt_ecommerce_add_product_description_{{$lang['code']}}" name="about[{{$lang['code']}}]" class="min-h-200px mb-2 about_div">{{old('about'.$lang['code'])}}</div>
+                                                    <div id="kt_ecommerce_add_product_description_{{$lang['code']}}" name="about[{{$lang['code']}}]" class="min-h-200px mb-2 about_div">{!! old('about'.$lang['code'], $product->getTranslation('about', $lang['code'])) !!}</div>
                                                 </div>
                                             </div>
-                                            <input name="about[{{$lang['code']}}]" id="about_{{$lang['code']}}" type="hidden" value="{{old('about.'.$lang['code'])}}">
+                                            <input name="about[{{$lang['code']}}]" id="about_{{$lang['code']}}" type="hidden" value="{{old('about'.$lang['code'], $product->getTranslation('about', $lang['code']))}}">
                                         @endforeach
                                     </div>
                                     <div class="card card-flush py-4">
@@ -188,17 +191,17 @@
                                         <div class="card-body pt-0">
                                             <div class="mb-10 fv-row">
                                                 <label class="required form-label">Market Price</label>
-                                                <input type="number" step="0.01" name="market_price" class="form-control mb-2" placeholder="Market price" value="{{old('market_price', 0)}}" />
+                                                <input type="number" step="0.01" name="market_price" class="form-control mb-2" placeholder="Market price" value="{{old('market_price', $product->market_price)}}" />
                                                 <div class="text-muted fs-7">Set the product market price.</div>
                                             </div>
                                             <div class="mb-10 fv-row">
                                                 <label class="required form-label">Daily Price</label>
-                                                <input type="number" step="0.01" name="price" class="form-control mb-2" placeholder="Daily price" value="{{old('price', 0)}}" />
+                                                <input type="number" step="0.01" name="price" class="form-control mb-2" placeholder="Daily price" value="{{old('price',  $product->price)}}" />
                                                 <div class="text-muted fs-7">Set the product daily price.</div>
                                             </div>
                                             <div class="mb-10 fv-row">
                                                 <label class="required form-label">Sale Price</label>
-                                                <input type="number" step="0.01" name="sale_price" class="form-control mb-2" placeholder="Sale price" value="{{old('sale_price', 0)}}" />
+                                                <input type="number" step="0.01" name="sale_price" class="form-control mb-2" placeholder="Sale price" value="{{old('sale_price',  $product->sale_price)}}" />
                                                 <div class="text-muted fs-7">Set the product sale price.</div>
                                             </div>
 
@@ -236,6 +239,11 @@
 @endsection
 
 @push('js')
+
+    <script>
+        var existingFiles = @json($files);
+
+    </script>
     <script src="/back/assets/plugins/global/plugins.bundle.js"></script>
     <script src="/back/assets/js/scripts.bundle.js"></script>
     <script src="/back/assets/plugins/custom/datatables/datatables.bundle.js"></script>
@@ -253,6 +261,11 @@
                 }
             });
         }
+    </script>
+
+    <script>
+
+
     </script>
 
 @endpush

@@ -35,7 +35,7 @@ class ProductRequest extends FormRequest
             'sale_price' => 'numeric|nullable',
             'market_price' => 'numeric|nullable',
             'designer_id' => 'required|integer',
-            'size' => 'integer',
+            'size' => 'numeric',
             'cover' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
 
         ];

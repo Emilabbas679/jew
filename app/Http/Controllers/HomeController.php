@@ -16,14 +16,11 @@ class HomeController extends Controller
 {
    public function index()
     {
-        $categories = Category::where('category_id', null)->where('status', 1)->limit(4)->get();
-        return view('site.index', compact('categories'));
+        $categories = Category::select('id','title', 'category_id', 'image')->where('category_id', null)->where('status', 1)->limit(4)->get();
+        $products = Product::select('id', 'title', 'price', 'sale_price','cover')->where('status', 1)->orderby('id', 'desc')->limit(6)->get();
+        return view('site.index', compact('categories', 'products'));
     }
 
-    public function category()
-    {
-        return view('site.category');
-    }
 
     public function products(Request $request)
     {
@@ -32,7 +29,29 @@ class HomeController extends Controller
         $occasions = Occasion::where('status', 1)->get();
         $colors = Color::where('status', 1)->get();
         $designers = Designer::where('status', 1)->get();
-        return view('site.products', compact('materials', 'categories','occasions', 'colors', 'designers', 'request'));
+        $products = Product::query();
+        $products->where('status', 1);
+        $products->select('id', 'title', 'cover', 'price', 'sale_price');
+        if ($request->has('category_id') and strlen($request->category_id) > 0)
+            $products->where('category_id', ((int) $request->category_id));
+        if ($request->has('occasion_id') and strlen($request->occasion_id) > 0)
+            $products->where('occasion_id', ((int) $request->occasion_id));
+        if ($request->has('material_id') and strlen($request->material_id) > 0)
+            $products->where('material_id', ((int) $request->material_id));
+        if ($request->has('colors') and is_array($request->colors))
+            $products->wherein('color_id', $request->colors);
+        if ($request->has('designer_id') and is_array($request->designers))
+            $products->wherein('designer_id', $request->designers);
+        if ($request->has('sort')) {
+            if ($request->sort == 1)
+                $products->orderby('id', 'desc');
+            else
+                $products->orderby('price', 'desc');
+        }
+        else
+            $products->orderby('id', 'desc');
+        $products = $products->paginate(12);
+        return view('site.products', compact('materials', 'categories','occasions', 'colors', 'designers', 'request', 'products'));
     }
 
     public function notFound()
@@ -40,10 +59,7 @@ class HomeController extends Controller
         return view('site.404');
     }
 
-    public function noProduct()
-    {
-        return view('site.no-product');
-    }
+
 
     public function product()
     {

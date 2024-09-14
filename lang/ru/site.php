@@ -1,5 +1,14 @@
 <?php 
  return [
+"products" => "Products",
+"product_not_found" => "Product not found",
+"product_not_found_description" => "Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.",
+"home_page_title" => "Ana səhifə",
+"per_day" => "Per Day",
+"go_homepage" => "Go to homepage",
+"404_not_found_desc" => "Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.",
+"404_not_found" => "404 - Page not found.",
+"error_page_title" => "Error",
 "products_page_title" => "Products",
 "rent" => "Kirayə",
 "browse_by_jewelery_desc" => "Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.",

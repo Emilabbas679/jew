@@ -16,19 +16,9 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/category', [HomeController::class, 'category']);
 Route::get('/products', [HomeController::class, 'products'])->name('products');
-
-
-
-Route::get('/404', [HomeController::class, 'notFound']);
-Route::get('/no-product', [HomeController::class, 'noProduct']);
-Route::get('/product', [HomeController::class, 'product']);
+Route::get('/product/{product_id?}', [HomeController::class, 'product'])->name('product');
 Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
-
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
