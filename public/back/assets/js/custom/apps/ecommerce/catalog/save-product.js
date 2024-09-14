@@ -24,7 +24,7 @@ var KTAppEcommerceSaveProduct = function() {
     return {
         init: function() {
             var o, a;
-            ["#kt_ecommerce_add_product_description", "#kt_ecommerce_add_product_meta_description"].forEach((e => {
+            ["#kt_ecommerce_add_product_description", "#kt_ecommerce_add_product_meta_description", '#kt_ecommerce_add_product_description_az', '#kt_ecommerce_add_product_description_en','#kt_ecommerce_add_product_description_ru'].forEach((e => {
                 let t = document.querySelector(e);
                 t && (t = new Quill(e, {
                     modules: {

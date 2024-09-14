@@ -17,6 +17,10 @@ use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/category', [HomeController::class, 'category']);
+Route::get('/products', [HomeController::class, 'products'])->name('products');
+
+
+
 Route::get('/404', [HomeController::class, 'notFound']);
 Route::get('/no-product', [HomeController::class, 'noProduct']);
 Route::get('/product', [HomeController::class, 'product']);

@@ -1,5 +1,11 @@
 <?php 
  return [
+"products_page_title" => "Products",
+"rent" => "Kirayə",
+"browse_by_jewelery_desc" => "Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.",
+"browse_by_jewelery" => "Browse by jewelry",
+"popular_jewelery_desc" => "Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.",
+"popular_jewelery" => "Popular jewelry",
 "jewelry" => "Jewelry",
 "about_us" => "About us",
 "how_it_works" => "How it works",

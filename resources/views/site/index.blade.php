@@ -56,62 +56,26 @@
 <section class="categories">
     <div class="centered">
         <div class="j-head">
-            <h2 class="j-title">Browse by jewelry</h2>
-            <div class="j-desc">Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.</div>
+            <h2 class="j-title">{{__('site.browse_by_jewelery')}}</h2>
+            <div class="j-desc">{{__('site.browse_by_jewelery_desc')}}</div>
         </div>
         <div class="category-list">
+            @foreach($categories as $item)
             <div class="category-item">
                 <div class="category-item-a">
-                    <a href="#">
+                    <a href="{{route('products', ['category_id' => $item->id])}}">
                         <div class="category-image">
-                            <img src="./images/p/category1.jpg">
+                            <img src="{{asset('/storage/'.$item->image)}}">
                         </div>
                         <div class="category-info">
-                            <div class="ct-a">Rent</div>
-                            <div class="ct-b">RINGS</div>
+                            <div class="ct-a">{{__('site.rent')}}</div>
+                            <div class="ct-b">{{$item->title}}</div>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="category-item">
-                <div class="category-item-a">
-                    <a href="#">
-                        <div class="category-image">
-                            <img src="./images/p/category2.jpg">
-                        </div>
-                        <div class="category-info">
-                            <div class="ct-a">Rent</div>
-                            <div class="ct-b">BRACELETS</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="category-item-a">
-                    <a href="#">
-                        <div class="category-image">
-                            <img src="./images/p/category3.jpg">
-                        </div>
-                        <div class="category-info">
-                            <div class="ct-a">Rent</div>
-                            <div class="ct-b">EARRINGS</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="category-item">
-                <div class="category-item-a">
-                    <a href="#">
-                        <div class="category-image">
-                            <img src="./images/p/category4.jpg">
-                        </div>
-                        <div class="category-info">
-                            <div class="ct-a">Rent</div>
-                            <div class="ct-b">NECKLACES</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -120,8 +84,8 @@
 <section class="products">
     <div class="centered">
         <div class="j-head">
-            <h2 class="j-title">Popular jewelry</h2>
-            <div class="j-desc">Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.</div>
+            <h2 class="j-title">{{__('site.popular_jewelery')}}</h2>
+            <div class="j-desc">{{__('site.popular_jewelery_desc')}}</div>
         </div>
         <div class="product-carousel owl-carousel">
             <div class="product-item">

@@ -40,14 +40,39 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
+        $imagePath = null;
+        if ($request->hasFile('cover')) {
+            $imagePath = $request->file('cover')->store('products', 'public');
+        }
+        $files = null;
+        if ($request->input('files')) {
+            $files = [];
+            foreach ($request->input('files') as $file)
+                $files[$file] = $file;
+            $files = json_encode($files);
+        }
 
-        dd($request->all());
-        Material::create([
+        $product = Product::create([
             'title' => $request->input('title'),
+            'about' => $request->input('title'),
+            'cover' => $imagePath,
             'status' => $request->input('status'),
+            'category_id' => $request->input('category_id'),
+            'designer_id' => $request->input('designer_id'),
+            'material_id' => $request->input('material_id'),
+            'color_id' => $request->input('color_id'),
+            'occasion_id' => $request->input('occasion_id'),
+            'size' => $request->input('size'),
+            'market_price' => $request->input('market_price'),
+            'price' => $request->input('price'),
+            'sale_price' => $request->input('sale_price'),
+            'files' => $files
         ]);
+        dd($product);
+
+
         return redirect()->route('materials.index')->with('success', 'material yaradıldı');
     }
 
