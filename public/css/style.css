@@ -306,20 +306,21 @@ strong,b{font-weight:700}
 .slider-video {border:0}
 .sn-item:last-child {margin-bottom:0}
 .sn-item img, .slider-video img {display:block; width: 100%; height:100%; object-fit: cover; border:0;}
-.slider-video:before {content: ""; position:absolute; top:0; left:0; width:100%; height: 100%; background:linear-gradient(0deg, rgba(19, 21, 25, 0.50) 0%, rgba(19, 21, 25, 0.50) 100%);}
-.slider-video:after {content: ""; position:absolute; width:32px; height:32px; top:0; bottom:0; left:0; right: 0; margin: auto; background-image: url(../images/play.svg)}
+.slider-video a {display:block;}
+.slider-video a:before {content: ""; position:absolute; top:0; left:0; width:100%; height: 100%; background:linear-gradient(0deg, rgba(19, 21, 25, 0.50) 0%, rgba(19, 21, 25, 0.50) 100%);}
+.slider-video a:after {content: ""; position:absolute; width:32px; height:32px; top:0; bottom:0; left:0; right: 0; margin: auto; background-image: url(../images/play.svg)}
 .slider-big-image {width:100%; border-radius:4px; border: 1px solid #D5DCEB; overflow:hidden;}
 .slider-big-image img {max-height:680px; width:100%; display:block; height:100%; object-fit: cover;}
 .sn-item:after {content: "";background-color: #5b46c214; position:absolute; top:0; left:0; width:100%; height:100%; opacity:0}
 .sn-item.active:after {opacity:1}
-.slider-v {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #00000085; z-index: 1000; overflow-y: auto; display:none; background-color: #000000c2}
+/* .slider-v {position: fixed; top: 0; left: 0; width: 100%; height: 100%;  z-index: 1000; overflow-y: auto; display:none; background-color: #000000c2}
 .slider-v .slider-vd-a {padding: 20px; width:100%; display: table; height:100%;}
 .slider-v .slider-vd-b {display:table-cell; vertical-align: middle;}
 .slider-vd {position: relative; width: 100%; user-select: none; max-width: 800px; margin: 0 auto;}
 .slider-vd:before {content: ""; display: block; padding-top: 61%;}
 .slider-vd iframe {width:100%; height:100%; position:absolute; top:0; left:0;}
 .vd-open {overflow:hidden;}
-.vd-close {position:absolute; top:20px; right:20px; background-size:cover; background-image: url(../images/close-w.svg); width:36px; height: 36px; cursor:pointer; z-index:1001}
+.vd-close {position:absolute; top:20px; right:20px; background-size:cover; background-image: url(../images/close-w.svg); width:36px; height: 36px; cursor:pointer; z-index:1001} */
 .product-view-review {display:flex;}
 .pr-rating {overflow:hidden; margin-bottom: 24px;}
 .pr-rating ul li {float:left; margin-right:4px; width: 24px; height: 24px; background-image: url(../images/star.svg);}
@@ -351,3 +352,46 @@ strong,b{font-weight:700}
 .product-spec .pr-spec-list ul li {width:50%; float:left; margin-bottom:16px; font-size:16px; line-height:24px; color:#6D7382}
 .pr-spec-list ul li b {font-weight: 500; color: #13151A; padding-left: 12px;}
 .products.br-b {border-bottom: 1px solid #E6EBF5;}
+.product-share {position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; overflow-y: auto; background-color: #000000c2; display:none;}
+.product-share .ps-a {padding: 20px; width:100%; display: table; height:100%;}
+.product-share .ps-b {display:table-cell; vertical-align: middle;}
+.share-bl {position: relative; width: 100%; user-select: none; max-width: 358px; margin: 0 auto; background-color: #fff; box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04); border-radius:4px; padding: 20px 16px}
+.ps-top {overflow:hidden;}
+.ps-top .ps-t {float:left; font-size:18px; line-height: 26px; letter-spacing: 0.15px; font-weight: 600;}
+.ps-top .ps-close {float:right; width:28px; height: 28px; background-image: url(../images/close2.svg); cursor:pointer;}
+.share-bl .ps-info {color: #383D47; font-size:14px; line-height: 20px; letter-spacing: 0.5px; margin-top:8px;}
+.share-list {margin: 32px 0;}
+.share-list ul {overflow:hidden;}
+.share-list ul li {float:left; margin-right: 12px;}
+.share-list ul li a {display:block; padding: 8px; border-radius:50%;}
+.share-list ul li a:before {content: ""; width:24px; height:24px; display:block;}
+.share-list ul li.s-fb a {background-color: #E1EEFF}
+.share-list ul li.s-fb a:before {background-image: url(../images/s-fb.svg)}
+.share-list ul li.s-wp a {background-color: #D5F9E3}
+.share-list ul li.s-wp a:before {background-image: url(../images/s-wp.svg)}
+.share-list ul li.s-tg a {background-color: #E2F5FF}
+.share-list ul li.s-tg a:before {background-image: url(../images/s-tg.svg)}
+.share-list ul li.s-xt a {background-color: #F0F0F0}
+.share-list ul li.s-xt a:before {background-image: url(../images/s-xt.svg)}
+.share-url {border-radius:4px; background-color: #F8FAFF; padding: 8px; position:relative; overflow:hidden;}
+.share-url .share-link {padding: 6px 0 6px 43px; font-size:14px; line-height: 20px; letter-spacing: 0.5px; color: #646C7D; overflow:hidden; white-space: nowrap; text-overflow: ellipsis;}
+.share-url i {position:absolute; top:0; bottom:0; margin: auto; left: 8px; border-radius:4px; background-color: #D5DCEB; padding: 6px; width:32px; height:32px;}
+.share-url i:before {content: ""; width:20px; height: 20px; display:block; background-image: url(../images/link.svg)}
+#copy-message {display:none; position:absolute; width:100%; height:100%; top:0; left:0; background-color: #F8FAFF; text-align:center; font-weight:500; line-height: 24px; font-size:18px; padding: 12px; color:#383D47}
+
+/* Review */
+.review {margin-bottom:24px;}
+.review .review-wrap {padding: 32px 24px; background-color: #fff;}
+.rv-title {color: #0B0139; font-size:28px; line-height: 36px; font-weight: 600; margin-bottom:16px;}
+.review-list .rv-item {margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #E6EBF5;}
+.rv-item .rv-author {font-size: 14px; line-height: 20px; font-weight: 500; margin-bottom:4px;}
+.rv-item .rv-extra {display:flex; margin-bottom:12px;}
+.rv-extra .pr-rating {margin-bottom:0;}
+.rv-extra .pr-rating ul li {width:16px; height: 16px; background-size:cover;}
+.rv-extra .rv-date {font-size:12px; line-height: 16px; letter-spacing: 0.5px; margin-left: 4px;}
+.rv-item .rv-text {font-size:14px; line-height: 20px; letter-spacing: 0.5px; max-width:768px;}
+.review-more {cursor:pointer; display:inline-block; vertical-align:top; font-size:14px; line-height: 20px; font-weight: 500; border-radius: 2px; background-color: #E6EBF5; padding: 8px 12px}
+.rv-images ul {overflow:hidden; max-width:768px; margin: 12px 0 -8px;}
+.rv-images ul li {float:left; padding: 0 8px 8px 0}
+.rv-images ul li a {display:block;}
+.rv-images ul li img {width:72px; max-height: 90px; object-fit: cover; display:block;}

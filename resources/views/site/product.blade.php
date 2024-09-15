@@ -9,17 +9,9 @@
                    <div class="product-gallery">
                         <div class="slider-thumbs">
                             <div class="slider-video">
-                                <img src="{{asset('/images/p/nav-vid.jpg')}}">
-                            </div>
-                            <div class="slider-v">
-                                <div class="vd-close"></div>
-                                <div class="slider-vd-a">
-                                    <div class="slider-vd-b">
-                                        <div class="slider-vd">
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BSK1CqgJNaU?si=ie5JKdEyzo0rYa8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a href="https://www.youtube.com/watch?v=BSK1CqgJNaU" data-fancybox="gallery-vd">
+                                <img src="{{asset('/images/p/nav-vid.jpg')}}" />
+                                </a>
                             </div>
                             <div class="slider-nav">
                                 <div class="sn-item">
@@ -89,12 +81,138 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="product-share">
+                        <div class="ps-a">
+                            <div class="ps-b">
+                                <div class="share-bl">
+                                    <div class="ps-top">
+                                        <div class="ps-t">Share jewelry</div>
+                                        <div class="ps-close"></div>
+                                    </div>
+                                    <div class="ps-info">Share this page with those who help you choose jewelry</div>
+                                    <div class="share-list">
+                                        <ul>
+                                            <li class="s-fb">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u=url" target="_blank"></a>
+                                            </li>
+                                            <li class="s-wp">
+                                                <a href="https://api.whatsapp.com/send?text=metn - url" target="_blank"></a>
+                                            </li>
+                                            <li class="s-tg">
+                                                <a href="https://telegram.me/share/url?url=url&text=metn" target="_blank"></a>
+                                            </li>
+                                            <li class="s-xt">
+                                                <a href="test" target="_blank"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="share-url">
+                                        <i></i>
+                                        <div class="share-link">https://fancy.com/17231-Highland-Ave-APT-2B-Jamaica-NY-11432/2112794738_zpid/</div>
+                                        <div id="copy-message">Kopyalandı</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div> 
     </div>
 </section>
 <!-- Product view end -->
+<!-- Product review start -->
+<section class="review">
+    <div class="centered">
+        <div class="review-wrap">
+            <div class="rv-title">Reviews</div>
+            <div class="review-list">
+                <div class="rv-item">
+                    <div class="rv-author">Hannah Lewis</div>
+                    <div class="rv-extra">
+                        <div class="pr-rating">
+                            <ul>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="rv-date">July 19, 2024</div>
+                    </div>
+                    <div class="rv-text">Lorem ipsum dolor sit amet consectetur. Massa nulla consectetur tristique vitae odio elementum parturient.</div>
+                </div>
+                <div class="rv-item">
+                    <div class="rv-author">Jennifer Garcia</div>
+                    <div class="rv-extra">
+                        <div class="pr-rating">
+                            <ul>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                            </ul>
+                        </div>
+                        <div class="rv-date">July 19, 2024</div>
+                    </div>
+                    <div class="rv-text">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
+                    <div class="rv-images">
+                        <ul>
+                            <li>
+                                <a href="{{asset('/images/p/rv1.jpg')}}" data-fancybox="gallery-rv"><img src="{{asset('/images/p/rv1.jpg')}}" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{asset('/images/p/rv2.jpg')}}" data-fancybox="gallery-rv"><img src="{{asset('/images/p/rv2.jpg')}}" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{asset('/images/p/rv3.jpg')}}" data-fancybox="gallery-rv"><img src="{{asset('/images/p/rv3.jpg')}}" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rv-item">
+                    <div class="rv-author">Taylor Ethan</div>
+                    <div class="rv-extra">
+                        <div class="pr-rating">
+                            <ul>
+                                <li class="active"></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="rv-date">July 19, 2024</div>
+                    </div>
+                    <div class="rv-text">Lorem ipsum dolor sit amet consectetur. In euismod orci sed volutpat dignissim.</div>
+                </div>
+                <div class="rv-item">
+                    <div class="rv-author">Isabella Duston</div>
+                    <div class="rv-extra">
+                        <div class="pr-rating">
+                            <ul>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                        <div class="rv-date">July 19, 2024</div>
+                    </div>
+                    <div class="rv-text">Lorem ipsum dolor sit amet consectetur. Integer mi purus neque turpis.</div>
+                </div>
+            </div>
+            <div class="review-more">(5) more reviews</div>
+        </div>
+    </div>
+</section>
+<!-- Product review end -->
 <!-- Products start -->
 <section class="products br-b">
     <div class="centered">
@@ -437,10 +555,11 @@
 @endsection
 
 @section('css')
-   
+   <link media="screen" href="{{asset('/css/fancybox.css')}}" type="text/css" rel="stylesheet" />
 @endsection
 
 @section('js')
+<script type="text/javascript" src="{{asset('/js/fancybox.umd.js')}}"></script>
 <script>
 $(document).ready(function() {
 
@@ -453,16 +572,58 @@ $('.sn-item').on('click', function() {
 
 $('.sn-item:first').addClass('active');
 
-$('.slider-video').on('click', function(e) {
- e.stopPropagation();
+/* $('.slider-video').on('click', function(e) {
+    e.stopPropagation();
     $('body').addClass('vd-open')
     $('.slider-v').show()
-})
+}); */
 
-$('.vd-close').on('click', function() {
+/* $('.vd-close').on('click', function() {
     $('body').removeClass('vd-open')
     $('.slider-v').hide()
-})
+}); */
+
+$('.share-url').click(function(){
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($('.share-link').text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+
+    $('#copy-message').fadeIn().delay(2000).fadeOut();
+});
+
+$('.pr-share').on('click', function(e) {
+    e.stopPropagation();
+    $('body').addClass('vd-open')
+    $('.product-share').show()
+});
+
+$('.ps-close').on('click', function() {
+    $('body').removeClass('vd-open')
+    $('.product-share').hide()
+});
+
+Fancybox.bind('[data-fancybox="gallery-rv"]', {
+    groupAll: true,
+    Toolbar: {
+        display: {
+        left: ["infobar"],
+        middle: [],
+        right: [
+            "thumbs",
+            "close",
+        ],
+        }
+        },
+  Thumbs: {
+    type: "classic",
+  },
+});
+
+Fancybox.bind('[data-fancybox="gallery-vd"]', {
+   
+});
 
 });
 </script>
