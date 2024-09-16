@@ -64,9 +64,9 @@
                         <div class="prd-b">Market price</div>
                     </div>
                     <div class="product-view-extra">
-                        <div class="pr-reserve">Reserve this piece</div>
-                        <div class="pr-fav"></div>
-                        <div class="pr-share"></div>
+                        <div class="pr-reserve m-md" data-target="#pr-reserve">Reserve this piece</div>
+                        <div class="pr-fav @if(in_array($product->id, $global_user_favorites)) active @endif" data-product-id="{{$product->id}}"></div>
+                        <div class="pr-share m-md" data-target="#pr-share"></div>
                     </div>
                     <h2 class="product-view-title">{{$product->title}} </h2>
                     <div class="product-about">
@@ -98,7 +98,20 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="product-share">
+                    <div class="product-reserve m-modal" id="pr-reserve">
+                        <div class="ps-a">
+                            <div class="ps-b">
+                                <div class="share-bl">
+                                    <div class="ps-top">
+                                        <div class="ps-t">Select your rental dates</div>
+                                        <div class="ps-close"></div>
+                                    </div>
+                                    <div class="ps-info">Share this page with those who help you choose jewelry</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-share m-modal" id="pr-share">
                         <div class="ps-a">
                             <div class="ps-b">
                                 <div class="share-bl">
@@ -110,22 +123,22 @@
                                     <div class="share-list">
                                         <ul>
                                             <li class="s-fb">
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u=url" target="_blank"></a>
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u={{route('product', $product->id)}}" target="_blank"></a>
                                             </li>
                                             <li class="s-wp">
-                                                <a href="https://api.whatsapp.com/send?text=metn - url" target="_blank"></a>
+                                                <a href="https://api.whatsapp.com/send?text={{$product->title}} - {{route('product', $product->id)}}" target="_blank"></a>
                                             </li>
                                             <li class="s-tg">
-                                                <a href="https://telegram.me/share/url?url=url&text=metn" target="_blank"></a>
+                                                <a href="https://telegram.me/share/url?url={{route('product', $product->id)}}&text={{$product->title}}" target="_blank"></a>
                                             </li>
                                             <li class="s-xt">
-                                                <a href="test" target="_blank"></a>
+                                                <a href="https://x.com/intent/tweet?text={{$product->title}}&url={{route('product', $product->id)}}" target="_blank"></a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="share-url">
                                         <i></i>
-                                        <div class="share-link">https://fancy.com/17231-Highland-Ave-APT-2B-Jamaica-NY-11432/2112794738_zpid/</div>
+                                        <div class="share-link">{{route('product', $product->id)}}</div>
                                         <div id="copy-message">Kopyalandı</div>
                                     </div>
                                 </div>
@@ -252,7 +265,7 @@
                                 </div>
                             </div>
                         </a>
-                        <div class="product-fav"></div>
+                        <div class="product-fav @if(in_array($item->id, $global_user_favorites)) active @endif" data-product-id="{{$item->id}}"></div>
                     </div>
                 </div>
 
@@ -529,15 +542,15 @@ $('.share-url').click(function(){
     $('#copy-message').fadeIn().delay(2000).fadeOut();
 });
 
-$('.pr-share').on('click', function(e) {
+$('.m-md').on('click', function(e) {
     e.stopPropagation();
+    $(($(this).attr("data-target"))).show();
     $('body').addClass('vd-open')
-    $('.product-share').show()
 });
 
 $('.ps-close').on('click', function() {
     $('body').removeClass('vd-open')
-    $('.product-share').hide()
+    $(this).parents('.m-modal').hide()
 });
 
 Fancybox.bind('[data-fancybox="gallery-rv"]', {
@@ -557,9 +570,7 @@ Fancybox.bind('[data-fancybox="gallery-rv"]', {
   },
 });
 
-Fancybox.bind('[data-fancybox="gallery-vd"]', {
-
-});
+Fancybox.bind('[data-fancybox="gallery-vd"]', {});
 
 });
 </script>

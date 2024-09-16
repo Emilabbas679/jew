@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="product-fav"></div>
+                            <div class="product-fav @if(in_array($item->id, $global_user_favorites)) active @endif" data-product-id="{{$item->id}}"></div>
                         </div>
                     </div>
 

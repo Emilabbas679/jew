@@ -99,12 +99,12 @@
                         <div class="product-info">
                             <div class="product-title">{{$item->title}}</div>
                             <div class="product-price">
-                                <div class="prc-a">$ {{$item->price}} /</div>
+                                <div class="prc-a">$ @if($item->sale_price != 0 or $item->sale_price != null) {{$item->sale_price}} @else {{$item->price}} @endif /</div>
                                 <div class="prc-b"> {{__('site.per_day')}}</div>
                             </div>
                         </div>
                     </a>
-                    <div class="product-fav"></div>
+                    <div class="product-fav @if(in_array($item->id, $global_user_favorites)) active @endif" data-product-id="{{$item->id}}"></div>
                 </div>
             </div>
             @endforeach

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\TranslateController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\OccasionController;
 use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\ColorController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [HomeController::class, 'products'])->name('products');
+Route::post('/favorite-product', [HomeController::class, 'productFavorite'])->name('productFavorite');
 Route::get('/product/{product_id}', [HomeController::class, 'product'])->name('product');
 Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
 
@@ -106,6 +108,15 @@ Route::group(['middleware' => ['dashboard']], function () {
         Route::post('/products/{product}/edit', [ProductController::class, 'update'])->middleware('can:product_edit')->name('products.update');
 
         Route::post('/products/upload-image', [ProductController::class, 'upload'])->name('products.image');
+
+
+
+        Route::get('/blogs', [BlogController::class, 'index'])->middleware('can:blog_view')->name('blogs.index');
+        Route::get('/blogs/create', [BlogController::class, 'create'])->middleware('can:blog_create')->name('blogs.create');
+        Route::post('/blogs/create', [BlogController::class, 'store'])->middleware('can:blog_create')->name('blogs.store');
+        Route::get('/blogs/{category}/edit', [BlogController::class, 'edit'])->middleware('can:blog_edit')->name('blogs.edit');
+        Route::post('/blogs/{blog}/edit', [BlogController::class, 'update'])->middleware('can:blog_edit')->name('blogs.update');
+        Route::post('/blogs/{blog}/delete', [BlogController::class, 'destroy'])->middleware('can:blog_destroy')->name('blogs.destroy');
 
     });
 });

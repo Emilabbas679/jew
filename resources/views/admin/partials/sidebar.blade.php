@@ -574,6 +574,16 @@
                                     </a>
                                 </div>
                             @endcan
+                            @can('blog_view')
+                                <div class="menu-item">
+                                    <a class="menu-link" href="{{route('blogs.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">Blogs</span>
+                                    </a>
+                                </div>
+                            @endcan
 
                         </div>
                     </div>

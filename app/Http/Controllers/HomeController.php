@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use App\Models\Category;
+use App\Models\Favorite;
 use App\Models\Product;
+use App\Models\OrderItem;
 use App\Models\Material;
 use App\Models\Designer;
 use App\Models\Color;
 use App\Models\Occasion;
+use Illuminate\Support\Facades\Cache;
+
 
 class HomeController extends Controller
 {
@@ -70,9 +74,23 @@ class HomeController extends Controller
             $product->files = json_decode($product->files, 1);
         else
             $product->files = [];
-
         $other_products = Product::where('id', "<>", $id)->where('status', 1)->where('category_id', $product->category_id)->orderby('id', 'desc')->limit(6)->get();
-        return view('site.product', compact('product', 'other_products'));
+
+        $reserved_dates = [];
+        $reserved = OrderItem::wherein('status', [1,2,3])->where('product_id', $product->id)->select('delivery_date', 'return_date')->get();
+        foreach ($reserved as $item) {
+            if ($item->delivery_date != null and $item->return_date != null and strtotime($item->return_date) >= strtotime($item->delivery_date)) {
+                $start_timestamp = strtotime($item->delivery_date);
+                $end_timestamp = strtotime($item->return_date);
+                $end_timestamp -= 86400;
+                $current_timestamp = $start_timestamp;
+                while ($current_timestamp <= $end_timestamp) {
+                    $reserved_dates[] = date('Y-m-d', $current_timestamp);
+                    $current_timestamp += 86400;
+                }
+            }
+        }
+        return view('site.product', compact('product', 'other_products', 'reserved_dates'));
     }
 
     public function locale($lang)
@@ -83,6 +101,44 @@ class HomeController extends Controller
             session(['locale' => $lang]);
         }
         return redirect()->back();
+    }
+
+    public function productFavorite(Request $request)
+    {
+
+        $validated = $request->validate([
+            'action' => 'required|string|max:255',
+            'product_id' => 'required|integer',
+        ]);
+
+       if (auth()->id() != 0) {
+           if (in_array($request->action, ['create', 'delete']) and $request->product_id >0) {
+                if ($request->action == 'create')
+                    Favorite::create(['user_id' => auth()->id(), 'product_id' => $request->product_id]);
+                else
+                    Favorite::where('user_id', auth()->id())->where('product_id', $request->product_id)->delete();
+               Cache::forget("user:favorited_products:".auth()->id());
+               return response()->json([
+                   'status' => 'success',
+                   'message' => __('site.successfully_changed')
+               ]);
+           }
+           else{
+               return response()->json([
+                   'status' => 'error',
+                   'message' => __('site.product_not_defined')
+               ]);
+           }
+       }
+       else{
+           return response()->json([
+               'status' => 'error',
+               'message' => __('site.you_have_to_login')
+           ]);
+       }
+
+
+        dd($request->all());
     }
 }
 
