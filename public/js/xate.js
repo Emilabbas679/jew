@@ -37,6 +37,7 @@ $(document).ready(function(){
     $('.show-pass').on('click', function() {
        const fieldType =  $(this).prev('.s-pass').attr('type') === 'password' ? 'text' : 'password';
         $(this).prev('.s-pass').attr('type', fieldType);
+        fieldType == "text" ? $(this).addClass('active') : $(this).removeClass('active')
     })
 	
 });

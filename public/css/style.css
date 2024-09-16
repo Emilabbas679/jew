@@ -25,7 +25,7 @@ h5{font-size:16px}
 strong,b{font-weight:700}
 * {box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box;}
 
-.tr, .top-menu ul li a, .main-slider .owl-nav>button, .sn-item:after {-webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease;}
+.tr, .top-menu ul li a, .main-slider .owl-nav>button, .sn-item:after, .my-profile-head ul li a {-webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease;}
 
 @font-face {
     font-family: 'Libre Franklin';
@@ -275,7 +275,8 @@ strong,b{font-weight:700}
 .lg-input {position:relative; margin-bottom:16px;}
 .lg-input input {display:block; font-size: 16px; line-height: 24px; letter-spacing: 0.4px; padding: 12px 8px 11px; width:100%; border:0; border-bottom: 1px solid #D5DCEB}
 .lg-input.w-icon input {padding-right: 36px;}
-.lg-input .show-pass {position:absolute; top:0; bottom:0; margin: auto; width:20px; height: 20px; right: 8px; background-image: url(../images/eye.svg); cursor:pointer;}
+.lg-input .show-pass {position:absolute; top:0; bottom:0; margin: auto; width:20px; height: 20px; right: 8px; background-image: url(../images/eye-a.svg); cursor:pointer; background-position: 0 0;}
+.lg-input .show-pass.active {background-position: 0 100%;}
 .fg-pass {text-align:right; margin-top: -4px; margin-bottom:16px;}
 .fg-pass a {display:inline-block; vertical-align: top; font-size:14px; line-height: 20px; font-weight: 500; text-decoration: underline;}
 .lg-button button, .lg-button a {display:block; width:240px; padding: 12px 20px; border-radius:2px; background-color: #5B46C2; color: #fff; font-size:16px; line-height: 24px; font-weight: 500; text-align:center; border:0; cursor:pointer}
@@ -401,3 +402,37 @@ strong,b{font-weight:700}
 #fav-message {visibility: hidden; width:332px; position:fixed; left:0; right:0; margin: auto; bottom: 0; border-radius: 4px; background-color: #CCC3FA; box-shadow: 0px 8px 12px 0px rgba(23, 30, 38, 0.08); transition: all 0.5s; opacity:0; z-index:1000; padding: 8px 16px 8px 48px; font-size: 16px; line-height: 24px; font-weight: 500}
 #fav-message.show {visibility: visible; opacity:1; bottom: 30px;}
 #fav-message:before {content: ""; position:absolute; top:0; bottom:0; left: 16px; background-image: url(../images/fav.svg); width:24px; height: 24px; margin: auto;}
+
+/* My profile */
+.my-profile {padding: 32px 0 64px;}
+.my-profile-wrap .mpr-title {color:#0B0139; font-size:36px; line-height: 44px; font-weight: 600; margin-bottom:24px;}
+.my-profile-head {position:relative; margin-bottom:24px;}
+.my-profile-head ul {overflow:hidden;}
+.my-profile-head ul li {float:left; margin-right: 8px;}
+.my-profile-head ul li a {display:block; font-size:16px; line-height: 24px; font-weight: 500; padding: 11px 16px; border-radius: 2px; border: 1px solid #D5DCEB;}
+.my-profile-head ul li:hover a {border-color: #13151A}
+.my-profile-head ul li.active a {color: #fff; background-color: #13151A; border-color: #13151A}
+.m-logout {position:absolute; right:0; top:12px;}
+.m-logout a {display:inline-block; vertical-align:  top; font-size:16px; line-height: 24px; font-weight: 500; position:relative; padding-left:32px;}
+.m-logout a:before {content: ""; width:24px; height:24px; display:block; position:absolute; top:0; left:0; bottom:0; margin: auto; background-image: url(../images/logout.svg)}
+.my-profile-block {background-color: #fff; border-radius:4px; box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04);}
+.pr-form {padding: 48px 20px; max-width:464px; margin: 0 auto;}
+.fr-title {font-size:28px; line-height: 36px; font-weight: 600; margin-bottom:16px;}
+.pr-item {margin-bottom:16px;}
+.pr-item .pr-label {font-size: 14px; line-height: 20px; font-weight: 500; margin-bottom:8px;}
+.pr-item .pr-input {position:relative;}
+.pr-item .pr-input input {display:block; width:100%; font-size:16px; line-height: 24px; letter-spacing: 0.4px; padding: 11px 16px; border-radius: 2px; border: 1px solid #B6BDCC;}
+.pr-item .pr-input.p-icon input {padding-right: 40px;}
+.pr-check {margin-bottom:16px;}
+.pr-check input {display:none;}
+.pr-check label {display: block; cursor: pointer; overflow: hidden; position: relative; user-select: none; color: #383D47; font-size: 14px; line-height: 20px; font-weight: 500; padding: 8px 0 8px 32px; }
+.pr-check label:before {content: ""; display: block; width: 16px; height: 16px; border-radius: 4px; border: 2px solid #D5DCEB; position: absolute; top: 0; bottom: 0; margin: auto; left: 0;}
+.pr-check label:after {content: ""; position: absolute; top: 0; bottom: 0; background-image: url(../images/check2.svg); display: block; width: 20px; height: 20px; top: 0; bottom: 0; left: 0; margin: auto; opacity: 0; z-index: 2;}
+.pr-check input:checked + label:after { opacity: 1; }
+.pr-button button {display: block; width: 100%; padding: 12px 20px; border-radius: 2px; background-color: #5B46C2; color: #fff; font-size: 16px; line-height: 24px; font-weight: 500; text-align: center; border: 0; cursor: pointer;}
+.pr-change-pass {margin-top: 40px;}
+.pr-input .show-pass {position:absolute; top:0; bottom:0; margin: auto; width:20px; height: 20px; right: 12px; background-image: url(../images/eye-b.svg); cursor:pointer;}
+.pr-input .show-pass.active {background-position: 0 100%;}
+.pr-text {margin-bottom:16px; color: #383D47; font-size:14px; line-height: 20px; letter-spacing: 0.5px;}
+.pr-vc {margin-top: 40px; text-align:center; color: #000; font-size:14px; line-height:20px; font-weight: 500;}
+.pr-vc a {text-decoration: underline; color: #000;}

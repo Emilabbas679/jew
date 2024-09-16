@@ -65,8 +65,8 @@
                                 <!--begin::Select2-->
                                 <select name="status" class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_category_status_select">
                                     <option></option>
-                                    <option value="1" @if($category->status == 1 or $category->status == null) selected @endif>Published</option>
-                                    <option value="2" @if($category->status == 2) selected @endif>Unpublished</option>
+                                    <option value="1" @if($blog->status == 1 or $blog->status == null) selected @endif>Published</option>
+                                    <option value="2" @if($blog->status == 2) selected @endif>Unpublished</option>
                                 </select>
                                 <div class="text-muted fs-7">Set the category status.</div>
                                 <div class="d-none mt-10">
@@ -90,27 +90,24 @@
 
                             <div class="card-body pt-0">
 
-                                <div class="mb-10 fv-row">
-                                    <label class="required form-label">Parent</label>
-                                    <select name="category_id" class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_category_status_select">
-                                        <option></option>
-                                        @foreach($parents as $item)
-                                            <option value="{{$item->id}}" @if($category->category_id == $item->id) selected @endif>{{$item->title}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
 
                                 @foreach(config('app.langs') as $lang)
                                     <div class="mb-10 fv-row">
-                                        <label class="required form-label">Category Name {{$lang['Name']}}</label>
-                                        <input type="text" name="title[{{$lang['code']}}]" class="form-control mb-2" placeholder="Category name" value="{{$category->getTranslation('title', $lang['code'])}}" />
+                                        <label class="required form-label">Blog Title {{$lang['Name']}}</label>
+                                        <input type="text" name="title[{{$lang['code']}}]" class="form-control mb-2" placeholder="Blog Title" value="{{$blog->getTranslation('title', $lang['code'])}}" />
                                     </div>
+                                    <div>
+                                        <label class="form-label">Description {{$lang['Name']}}</label>
+                                        <div id="kt_ecommerce_add_product_description_{{$lang['code']}}" name="description[{{$lang['code']}}]" class="min-h-200px mb-2 about_div">{!! old('description'.$lang['code'], $blog->getTranslation('description', $lang['code'])) !!}</div>
+                                    </div>
+                                    <input name="description[{{$lang['code']}}]" id="about_{{$lang['code']}}" type="hidden" value="{{old('description'.$lang['code'], $blog->getTranslation('description', $lang['code']))}}">
+
                                 @endforeach
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <a href="{{route('categories.index')}}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+                            <a href="{{route('blogs.index')}}" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
                             <button type="submit" id="kt_ecommerce_add_category_submit" class="btn btn-primary">
                                 <span class="indicator-label">Save Changes</span>
 

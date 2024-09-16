@@ -70,29 +70,29 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CategoryRequest $request, Category $category)
+    public function update(BlogRequest $request, Blog $blog)
     {
-        $category->status = $request->input('status');
-        $category->category_id = $request->input('category_id');
-        $category->title = $request->input('title');
+        $blog->status = $request->input('status');
+        $blog->title = $request->input('title');
+        $blog->description = $request->input('description');
         if ($request->hasFile('image')) {
-            if ($category->image) {
-                Storage::disk('public')->delete($category->image);
+            if ($blog->image) {
+                Storage::disk('public')->delete($blog->image);
             }
-            $category->image = $request->file('image')->store('categories', 'public');
+            $blog->image = $request->file('image')->store('blogs', 'public');
         }
-        $category->save();
-        return redirect()->route('categories.index')->with('success', 'Kateqoriya yeniləndi');
+        $blog->save();
+        return redirect()->route('blogs.index')->with('success', 'Bloq yeniləndi');
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Blog $blog)
     {
-        $category->delete();
-        return redirect()->route('categories.index')->with('success', 'Kateqoriya Silindi');
+        $blog->delete();
+        return redirect()->route('blogs.index')->with('success', 'Bloq Silindi');
 
     }
 }

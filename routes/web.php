@@ -22,6 +22,10 @@ Route::post('/favorite-product', [HomeController::class, 'productFavorite'])->na
 Route::get('/product/{product_id}', [HomeController::class, 'product'])->name('product');
 Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
 
+// Demo
+Route::get('/favorites', [HomeController::class, 'favorites']);
+Route::get('/my-account', [HomeController::class, 'myAccount']);
+
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot');
@@ -114,7 +118,7 @@ Route::group(['middleware' => ['dashboard']], function () {
         Route::get('/blogs', [BlogController::class, 'index'])->middleware('can:blog_view')->name('blogs.index');
         Route::get('/blogs/create', [BlogController::class, 'create'])->middleware('can:blog_create')->name('blogs.create');
         Route::post('/blogs/create', [BlogController::class, 'store'])->middleware('can:blog_create')->name('blogs.store');
-        Route::get('/blogs/{category}/edit', [BlogController::class, 'edit'])->middleware('can:blog_edit')->name('blogs.edit');
+        Route::get('/blogs/{blog}/edit', [BlogController::class, 'edit'])->middleware('can:blog_edit')->name('blogs.edit');
         Route::post('/blogs/{blog}/edit', [BlogController::class, 'update'])->middleware('can:blog_edit')->name('blogs.update');
         Route::post('/blogs/{blog}/delete', [BlogController::class, 'destroy'])->middleware('can:blog_destroy')->name('blogs.destroy');
 

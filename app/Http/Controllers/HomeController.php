@@ -140,5 +140,16 @@ class HomeController extends Controller
 
         dd($request->all());
     }
+
+    public function favorites()
+    {
+        return view('site.favorites');
+    }
+
+    public function myAccount()
+    {
+        return view('site.my-account');
+    }
+
 }
 

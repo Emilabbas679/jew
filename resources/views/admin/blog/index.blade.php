@@ -20,11 +20,11 @@
 
                     <div class="card-body pt-0">
                         @include('admin.flash')
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_category_table">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
                             <thead>
                             <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
 
-                                <th class="min-w-250px">ID</th>
+                                <th class="">ID</th>
                                 <th class="min-w-250px">Title</th>
                                 <th class="min-w-150px">Status</th>
                                 <th class="text-end min-w-70px">Actions</th>
@@ -67,3 +67,12 @@
     </div>
 
 @endsection
+
+@push('js')
+    <link href="/back/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <script src="/back/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="/back/assets/js/scripts.bundle.js"></script>
+    <script src="/back/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="/back/assets/js/custom/apps/ecommerce/catalog/products.js"></script>
+
+@endpush
