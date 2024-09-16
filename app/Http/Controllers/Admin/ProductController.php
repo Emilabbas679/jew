@@ -57,6 +57,7 @@ class ProductController extends Controller
         $product = Product::create([
             'title' => $request->input('title'),
             'about' => $request->input('title'),
+            'video' => $request->input('video'),
             'cover' => $imagePath,
             'status' => $request->input('status'),
             'category_id' => $request->input('category_id'),
@@ -131,6 +132,7 @@ class ProductController extends Controller
 
 
         $product->title = $request->input('title');
+        $product->video = $request->input('video');
         $product->about = $request->input('about');
         $product->status = $request->input('status');
         $product->category_id = $request->input('category_id');

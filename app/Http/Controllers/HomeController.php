@@ -61,9 +61,18 @@ class HomeController extends Controller
 
 
 
-    public function product()
+    public function product($id)
     {
-        return view('site.product');
+        $product = Product::where('id', $id)->where('status', 1)->with('category', 'color', 'material', 'designer', 'occasion')->firstorfail();
+        $product->hits += 1;
+        $product->save();
+        if ($product->files != null)
+            $product->files = json_decode($product->files, 1);
+        else
+            $product->files = [];
+
+        $other_products = Product::where('id', "<>", $id)->where('status', 1)->where('category_id', $product->category_id)->orderby('id', 'desc')->limit(6)->get();
+        return view('site.product', compact('product', 'other_products'));
     }
 
     public function locale($lang)

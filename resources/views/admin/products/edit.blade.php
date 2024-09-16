@@ -180,6 +180,11 @@
                                                 </div>
                                             </div>
                                             <div class="text-muted fs-7">Set the product media gallery.</div>
+
+                                            <div class="mb-10 fv-row">
+                                                <label class="required form-label">Video link</label>
+                                                <input type="text" name="video" class="form-control mb-2" placeholder="Video link" value="{{old('video', $product->video)}}" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="card card-flush py-4">

@@ -1,4 +1,5 @@
 @extends('site.home')
+@section('title', $product->title)
 @section('content')
 <!-- Product view start -->
 <section class="product-view">
@@ -8,32 +9,34 @@
                 <div class="product-view-left">
                    <div class="product-gallery">
                         <div class="slider-thumbs">
-                            <div class="slider-video">
-                                <a href="https://www.youtube.com/watch?v=BSK1CqgJNaU" data-fancybox="gallery-vd">
-                                <img src="{{asset('/images/p/nav-vid.jpg')}}" />
-                                </a>
-                            </div>
+                            @if($product->video != null)
+                                <div class="slider-video">
+                                    <a href="https://www.youtube.com/watch?v=BSK1CqgJNaU" data-fancybox="gallery-vd">
+                                        <img src="{{asset('/storage/'.$product->cover)}}" />
+                                    </a>
+                                </div>
+                            @endif
+
                             <div class="slider-nav">
-                                <div class="sn-item">
-                                    <img src="{{asset('/images/p/nav1.jpg?V1')}}" data-big-image="{{asset('/images/p/big1.jpg')}}">
-                                </div>
-                                <div class="sn-item">
-                                    <img src="{{asset('/images/p/nav2.jpg?V1')}}" data-big-image="{{asset('/images/p/big2.jpg')}}">
-                                </div>
-                                <div class="sn-item">
-                                    <img src="{{asset('/images/p/nav3.jpg?V1')}}" data-big-image="{{asset('/images/p/big3.jpg')}}">
-                                </div>
-                                <div class="sn-item">
-                                    <img src="{{asset('/images/p/nav1.jpg?V1')}}" data-big-image="{{asset('/images/p/big1.jpg')}}">
-                                </div>
-                                <div class="sn-item">
-                                    <img src="{{asset('/images/p/nav2.jpg?V1')}}" data-big-image="{{asset('/images/p/big2.jpg')}}">
-                                </div>
+                                @foreach($product->files as $item)
+                                    <div class="sn-item">
+                                        <img src="{{asset('/storage/'.$item)}}" data-big-image="{{asset('/storage/'.$item)}}">
+                                    </div>
+                                @endforeach
+
                             </div>
                         </div>
-                        <div class="slider-big-image">
-                            <img src="{{asset('/images/p/big1.jpg')}}" id="big-image">
-                        </div>
+                       @if(count($product->files) > 0)
+                           <div class="slider-big-image">
+                               <img src="{{asset('/storage/'.collect($product->files)->first())}}" id="big-image">
+                           </div>
+
+                       @else
+                           <div class="slider-big-image">
+                               <img src="{{asset('/storage/'.$product->cover)}}" id="big-image">
+                           </div>
+                       @endif
+
                     </div>
                 </div>
                 <div class="product-view-right">
@@ -50,12 +53,14 @@
                         <div class="rating-to"><a href="./">See (4) reviews</a></div>
                     </div>
                     <div class="product-price">
-                        <div class="prc-a">$ 19.45 /</div>
-                        <div class="prc-b"> Per Day</div>
-                        <div class="prc-c">$ 74.00</div>
+                        <div class="prc-a">$ @if($product->sale_price != 0 and $product->sale_price != null) {{$product->sale_price}} @else {{$product->price}} @endif /</div>
+                        <div class="prc-b"> {{__('site.per_day')}}</div>
+                        @if($product->sale_price != 0 and $product->sale_price != null)
+                        <div class="prc-c">$ {{$product->price}}</div>
+                        @endif
                     </div>
                     <div class="price-day">
-                        <div class="prd-a">$ 6.850 /</div>
+                        <div class="prd-a">$ {{$product->market_price}} /</div>
                         <div class="prd-b">Market price</div>
                     </div>
                     <div class="product-view-extra">
@@ -63,21 +68,33 @@
                         <div class="pr-fav"></div>
                         <div class="pr-share"></div>
                     </div>
-                    <h2 class="product-view-title">Pear Shaped Morganite and Diamonds Cocktail </h2>
+                    <h2 class="product-view-title">{{$product->title}} </h2>
                     <div class="product-about">
                         <div class="pr-about-t">About jewelry</div>
-                        <div class="pr-about-text">Add a touch of elegance to your ensemble with this stunning Pear Shaped Morganite and Diamonds Cocktail Ring, available for rent.</div>
+                        <div class="pr-about-text">{!! $product->about !!}</div>
                     </div>
                     <div class="product-spec">
                         <div class="pr-spec-t">Product specifications</div>
                         <div class="pr-spec-list">
                             <ul>
-                                <li>Type:<b>Rings</b></li>
-                                <li>Size:<b>14, 15, 16, 17</b></li>
-                                <li>Occasion:<b>Wedding</b></li>
-                                <li>Color:<b>Multicolor</b></li>
-                                <li>Material:<b>Gold</b></li>
-                                <li>Designers:<b>Adina Reyter</b></li>
+                                @if($product->category)
+                                    <li>Type:<b>{{$product->category->title}}</b></li>
+                                @endif
+                                @if($product->size != 0 and $product->size != null)
+                                        <li>Size:<b>{{$product->size}}</b></li>
+                                @endif
+                                @if($product->occasion )
+                                    <li>Occasion:<b>{{$product->occasion->title}}</b></li>
+                                @endif
+                                @if($product->color )
+                                    <li>Color:<b>{{$product->color->title}}</b></li>
+                                @endif
+                                @if($product->material )
+                                    <li>Material:<b>{{$product->material->title}}</b></li>
+                                @endif
+                                @if($product->designer )
+                                    <li>Designer:<b>{{$product->designer->title}}</b></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -117,7 +134,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
 </section>
 <!-- Product view end -->
@@ -220,108 +237,27 @@
             <h2 class="j-title">You Might Also Like</h2>
         </div>
         <div class="product-carousel owl-carousel">
-            <div class="product-item">
-                <div class="product-item-a">
-                    <a href="./">
-                        <div class="product-image">
-                            <img src="{{asset('/images/p/product1.jpg')}}">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">Cartier Juste un Clou</div>
-                            <div class="product-price">
-                                <div class="prc-a">$ 19.45 /</div>
-                                <div class="prc-b"> Per Day</div>
+            @foreach($other_products as $item)
+                <div class="product-item">
+                    <div class="product-item-a">
+                        <a href="{{route('product', $item->id)}}">
+                            <div class="product-image">
+                                <img src="{{asset('/storage/'.$item->cover)}}">
                             </div>
-                        </div>
-                    </a>
-                    <div class="product-fav"></div>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="product-item-a">
-                    <a href="./">
-                        <div class="product-image">
-                            <img src="{{asset('/images/p/product2.jpg')}}">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">Doves by Doron Paloma</div>
-                            <div class="product-price">
-                                <div class="prc-a">$ 20.50 /</div>
-                                <div class="prc-b"> Per Day</div>
+                            <div class="product-info">
+                                <div class="product-title">{{$item->title}}</div>
+                                <div class="product-price">
+                                    <div class="prc-a">$ @if($product->sale_price != 0 and $product->sale_price != null) {{$product->sale_price}} @else {{$product->price}} @endif /</div>
+                                    <div class="prc-b"> {{__('site.per_day')}}</div>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <div class="product-fav"></div>
+                        </a>
+                        <div class="product-fav"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="product-item">
-                <div class="product-item-a">
-                    <a href="./">
-                        <div class="product-image">
-                            <img src="{{asset('/images/p/product3.jpg')}}">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">Green Emerald and Pave</div>
-                            <div class="product-price">
-                                <div class="prc-a">$ 34.00 /</div>
-                                <div class="prc-b"> Per Day</div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="product-fav active"></div>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="product-item-a">
-                    <a href="./">
-                        <div class="product-image">
-                            <img src="{{asset('/images/p/product4.jpg')}}">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">Van Cleef Red Alhambra</div>
-                            <div class="product-price">
-                                <div class="prc-a">$ 28.45 /</div>
-                                <div class="prc-b"> Per Day</div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="product-fav"></div>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="product-item-a">
-                    <a href="./">
-                        <div class="product-image">
-                            <img src="{{asset('/images/p/product1.jpg')}}">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">Cartier Juste un Clou</div>
-                            <div class="product-price">
-                                <div class="prc-a">$ 19.45 /</div>
-                                <div class="prc-b"> Per Day</div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="product-fav"></div>
-                </div>
-            </div>
-            <div class="product-item">
-                <div class="product-item-a">
-                    <a href="./">
-                        <div class="product-image">
-                            <img src="{{asset('/images/p/product2.jpg')}}">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-title">Doves by Doron Paloma</div>
-                            <div class="product-price">
-                                <div class="prc-a">$ 20.50 /</div>
-                                <div class="prc-b"> Per Day</div>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="product-fav"></div>
-                </div>
-            </div>    
+
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -434,7 +370,7 @@
                     </a>
                     <div class="product-fav"></div>
                 </div>
-            </div>    
+            </div>
         </div>
     </div>
 </section>
@@ -547,7 +483,7 @@
                     </a>
                     <div class="product-fav"></div>
                 </div>
-            </div>    
+            </div>
         </div>
     </div>
 </section>
@@ -564,10 +500,10 @@
 $(document).ready(function() {
 
 $('.sn-item').on('click', function() {
-    var bigImageSrc = $(this).children('img').data('big-image'); 
+    var bigImageSrc = $(this).children('img').data('big-image');
     $('.sn-item').removeClass('active');
     $(this).addClass('active');
-    $('#big-image').attr('src', bigImageSrc); 
+    $('#big-image').attr('src', bigImageSrc);
   });
 
 $('.sn-item:first').addClass('active');
@@ -622,7 +558,7 @@ Fancybox.bind('[data-fancybox="gallery-rv"]', {
 });
 
 Fancybox.bind('[data-fancybox="gallery-vd"]', {
-   
+
 });
 
 });

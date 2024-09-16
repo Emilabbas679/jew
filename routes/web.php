@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [HomeController::class, 'products'])->name('products');
-Route::get('/product/{product_id?}', [HomeController::class, 'product'])->name('product');
+Route::get('/product/{product_id}', [HomeController::class, 'product'])->name('product');
 Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');

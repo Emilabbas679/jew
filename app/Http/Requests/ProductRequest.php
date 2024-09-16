@@ -21,6 +21,7 @@ class ProductRequest extends FormRequest
             'title.az' => 'required|string|max:255',
             'title.en' => 'required|string|max:255',
             'title.ru' => 'required|string|max:255',
+            'video' => 'string',
             'about' => 'required|array',
             'about.az' => 'required|string|max:255',
             'about.en' => 'required|string|max:255',
