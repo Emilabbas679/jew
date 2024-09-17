@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\RoleController;
@@ -23,15 +24,21 @@ Route::get('/product/{product_id}', [HomeController::class, 'product'])->name('p
 Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 // Demo
-Route::get('/favorites', [HomeController::class, 'favorites']);
-Route::get('/my-account', [HomeController::class, 'myAccount']);
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/profile/favorites', [ProfileController::class, 'favorites'])->name('profile.favorites');
+    Route::match(['get', 'post'],'/profile', [ProfileController::class, 'profile'])->name('profile');
+});
+
+
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot');
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['dashboard']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
