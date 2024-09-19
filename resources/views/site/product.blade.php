@@ -106,7 +106,17 @@
                                         <div class="ps-t">Select your rental dates</div>
                                         <div class="ps-close"></div>
                                     </div>
-                                    <div class="ps-info">Share this page with those who help you choose jewelry</div>
+                                    <div class="cl-info">
+                                        <ul>
+                                            <li>Receive</li>
+                                            <li class="rt">Return</li>
+                                            <li class="un">Unavailable</li>
+                                        </ul>
+                                    </div>
+
+                                    <input id="flatpickr" type="hidden" name="dates" value="" />
+                                        
+
                                 </div>
                             </div>
                         </div>
@@ -505,10 +515,13 @@
 
 @section('css')
    <link media="screen" href="{{asset('/css/fancybox.css')}}" type="text/css" rel="stylesheet" />
+   <link media="screen" href="{{asset('/css/flatpickr.min.css')}}" type="text/css" rel="stylesheet" />
 @endsection
 
 @section('js')
 <script type="text/javascript" src="{{asset('/js/fancybox.umd.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/flatpickr.js')}}"></script>
 <script>
 $(document).ready(function() {
 
@@ -572,6 +585,34 @@ Fancybox.bind('[data-fancybox="gallery-rv"]', {
 
 Fancybox.bind('[data-fancybox="gallery-vd"]', {});
 
+
 });
+
+
+$("#flatpickr").flatpickr({
+  mode: "range",
+  showMonths: 1,
+  dateFormat: "m/d/Y", 
+  enableTime: false, 
+
+  inline:true,
+  monthSelectorType: 'static', 
+  minDate: "today",
+    disable: ["09/27/2024", "09/28/2024" ],
+
+    onDayCreate: function(dObj, dStr, fp, dayElem) {
+    const today = new Date();
+    
+    if (dayElem.dateObj) {
+      if (dayElem.dateObj.setHours(0,0,0,0) < today.setHours(0,0,0,0)) {
+        dayElem.classList.add("past-date");
+      }
+    }
+  }
+
+});
+
+
+
 </script>
 @endsection
