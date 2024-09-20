@@ -113,10 +113,14 @@
                                             <li class="un">Unavailable</li>
                                         </ul>
                                     </div>
-
-                                    <input id="flatpickr" type="hidden" name="dates" value="" />
-                                        
-
+                                    <form>
+                                        <input id="flatpickr" type="hidden" name="dates" value="" />
+                                        <input type="hidden" id="startDate" name="startDate">
+                                        <input type="hidden" id="endDate" name="endDate">
+                                        <div class="add-cart">
+                                            <button type="submit">Add to cart</div>
+                                        </div>
+                                    <form>
                                 </div>
                             </div>
                         </div>
@@ -588,27 +592,36 @@ Fancybox.bind('[data-fancybox="gallery-vd"]', {});
 
 });
 
+let $startDate = $('#startDate');
+let $endDate = $('#endDate');
 
 $("#flatpickr").flatpickr({
-  mode: "range",
-  showMonths: 1,
-  dateFormat: "m/d/Y", 
-  enableTime: false, 
+    mode: "range",
+    showMonths: 1,
+    dateFormat: "d.m.Y", 
+    enableTime: false, 
 
-  inline:true,
-  monthSelectorType: 'static', 
-  minDate: "today",
-    disable: ["09/27/2024", "09/28/2024" ],
+    inline:true,
+    monthSelectorType: 'static', 
+    minDate: "today",
+    disable: ["27.09.2024", "28.09.2024" ],
 
     onDayCreate: function(dObj, dStr, fp, dayElem) {
-    const today = new Date();
+        const today = new Date();
     
-    if (dayElem.dateObj) {
-      if (dayElem.dateObj.setHours(0,0,0,0) < today.setHours(0,0,0,0)) {
-        dayElem.classList.add("past-date");
-      }
+        if (dayElem.dateObj) {
+        if (dayElem.dateObj.setHours(0,0,0,0) < today.setHours(0,0,0,0)) {
+            dayElem.classList.add("past-date");
+        }
+        }
+    },
+
+    onChange: function(selectedDates) {
+        if (selectedDates.length === 2) {
+            $startDate.val(flatpickr.formatDate(selectedDates[0], "d.m.Y"));
+            $endDate.val(flatpickr.formatDate(selectedDates[1], "d.m.Y"));
+        }
     }
-  }
 
 });
 
