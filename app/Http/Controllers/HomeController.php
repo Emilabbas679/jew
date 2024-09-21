@@ -151,5 +151,10 @@ class HomeController extends Controller
         return view('site.my-account');
     }
 
+    public function cart()
+    {
+        return view('site.cart');
+    }
+
 }
 

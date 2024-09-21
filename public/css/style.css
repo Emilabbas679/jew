@@ -74,6 +74,7 @@ strong,b{font-weight:700}
 .container {padding-top: 64px;}
 .j-head {margin-bottom: 32px; text-align:center;}
 .j-head .j-title {font-size:36px; line-height: 44px; color: #0B0139; font-weight: 600;}
+.j-head .j-title.j-left {text-align:left;}
 .j-head .j-desc {text-align:center; color: #383D47; text-shadow: 0px 8px 12px rgba(23, 30, 38, 0.08); font-size:16px; line-height: 24px; letter-spacing: 0.4px; margin-top: 8px;}
 .j-head .j-count {text-align:center; color: #383D47; text-shadow: 0px 8px 12px rgba(23, 30, 38, 0.08); font-size:14px; line-height: 20px; letter-spacing: 0.5px; margin-top: 4px;}
 .mb-0 {margin-bottom: 0 !important}
@@ -430,9 +431,9 @@ strong,b{font-weight:700}
 .pr-item .pr-input.p-icon input {padding-right: 40px;}
 .pr-check {margin-bottom:16px;}
 .pr-check input {display:none;}
-.pr-check label {display: block; cursor: pointer; overflow: hidden; position: relative; user-select: none; color: #383D47; font-size: 14px; line-height: 20px; font-weight: 500; padding: 8px 0 8px 32px; }
-.pr-check label:before {content: ""; display: block; width: 16px; height: 16px; border-radius: 4px; border: 2px solid #D5DCEB; position: absolute; top: 0; bottom: 0; margin: auto; left: 0;}
-.pr-check label:after {content: ""; position: absolute; top: 0; bottom: 0; background-image: url(../images/check2.svg); display: block; width: 20px; height: 20px; top: 0; bottom: 0; left: 0; margin: auto; opacity: 0; z-index: 2;}
+.pr-check label {display: block; cursor: pointer; overflow: hidden; position: relative; user-select: none; color: #383D47; font-size: 14px; line-height: 20px;  padding: 8px 0 8px 32px; letter-spacing: 0.5px;}
+.pr-check label:before {content: ""; display: block; width: 16px; height: 16px; border-radius: 4px; border: 2px solid #D5DCEB; position: absolute; top: 8px; left: 0;}
+.pr-check label:after {content: ""; position: absolute; top: 0; bottom: 0; background-image: url(../images/check2.svg); display: block; width: 20px; height: 20px; top: 8px; left: 0; opacity: 0; z-index: 2;}
 .pr-check input:checked + label:after { opacity: 1; }
 .pr-button button {display: block; width: 100%; padding: 12px 20px; border-radius: 2px; background-color: #5B46C2; color: #fff; font-size: 16px; line-height: 24px; font-weight: 500; text-align: center; border: 0; cursor: pointer;}
 .pr-change-pass {margin-top: 40px;}
@@ -488,3 +489,55 @@ strong,b{font-weight:700}
 .product-reserve .flatpickr-day.selected, .product-reserve .flatpickr-day.startRange, .product-reserve  .flatpickr-day.selected, .product-reserve .flatpickr-day.startRange, .product-reserve  .flatpickr-day.selected:hover, .product-reserve .flatpickr-day.startRange:hover, .product-reserve .flatpickr-day.startRange:focus,.product-reserve .flatpickr-day.selected.nextMonthDay, .product-reserve .flatpickr-day.startRange.nextMonthDay, .product-reserve .flatpickr-day.endRange, .product-reserve .flatpickr-day.endRange.nextMonthDay, .product-reserve .flatpickr-day.selected.prevMonthDay, .product-reserve .flatpickr-day.startRange.prevMonthDay
 {border-color:#E6EBF5; background:#E3DEFC; color: #161B1F;}
 .product-reserve .flatpickr-day.endRange.nextMonthDay:not(.selected), .product-reserve .flatpickr-day.startRange.nextMonthDay:not(.selected) {color: rgba(56, 61, 71, 0.38)}
+
+/* Cart */
+.cart-page {padding: 24px 0}
+.cart-top {display:flex;}
+.cart-top .cart-left, .cart-top .cart-right {background-color: #fff; border-radius:4px; box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04); padding: 24px;}
+.cart-top .cart-left {flex:1; padding-bottom:0;}
+.cart-top .cart-right {width:424px; margin-left: 24px;}
+.ct-title {font-size:46px; line-height: 53px; font-weight: 600; color: #0B0139; margin-bottom:4px;}
+.ct-count {color: #383D47; text-shadow: 0px 8px 12px rgba(23, 30, 38, 0.08); font-size:14px; line-height: 20px; letter-spacing: 0.5px;}
+.cart-list .cart-item {padding: 20px 0; border-bottom: 1px solid #D5DCEB; overflow:hidden;}
+.cart-list .cart-item:last-child {border-bottom:0;}
+.cart-item .cart-image {border-radius: 4px; width:142px; background-color: #fff; overflow: hidden; border: 1px solid #E6EBF5; position: relative; float:left;}
+.cart-item .cart-image a {display:block;}
+.cart-item .cart-image img {display: block; max-width: 100%; height: 100%; max-height: 148px; margin: 0 auto;}
+.cart-item .cart-info {overflow:hidden; padding-left: 20px; display:flex; flex-direction: column;}
+.cart-info .cart-info-a {position:relative; flex:1; padding-right: 80px; max-width:662px; margin-bottom:16px;}
+.cart-info-a a {display:block}
+.cart-info-a .ct-pr-title {color: #383D47; font-size:18px; font-weight: 500; line-height: 26px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.cart-info-a .product-fav, .cart-info-a .product-delete {position: absolute; top: 1px; right: 40px; cursor: pointer;}
+.cart-info-a .product-fav:before, .cart-info-a .product-delete:before {content: ""; display: block; width: 24px; height: 24px; background-position: 0 0; background-image: url(../images/fav.svg);}
+.cart-info-a .product-fav.active:before {background-position: 0 100%;}
+.cart-info-a .product-delete {right: 0;}
+.cart-info-a .product-delete:before {background-image: url(../images/trash.svg)}
+.cart-info-b {display:flex;}
+.cart-info-b .cart-dates .ctd {color: #6D7382; font-size: 14px; line-height: 20px; letter-spacing: 0.5px; margin-bottom:12px; padding-right: 30px;}
+.cart-info-b .cart-dates .ctd b {padding-left: 12px; font-weight: 600; color: #13151A; letter-spacing: 0;}
+.cart-info-b .cart-price {margin-left: auto;}
+.cart-price .product-price .prc-a {font-size:20px; line-height: 28px;}
+.cr-promotion {position:absolute; top: 12px; left: 12px; color: #fff; background-color:#5B46C2; font-size:14px; line-height:20px; letter-spacing: 0.1px; border-radius:2px; padding: 2px 4px;}
+.ct-a-info {border-radius:4px; padding: 12px; background-color: #F8FAFF; margin-bottom: 16px; color: #383D47; font-size: 14px; line-height: 20px; letter-spacing: 0.5px;}
+.ct-a-info ul li {padding-left: 20px; position:relative;}
+.ct-a-info ul li:before {content: ''; width:3px; height:3px; background-color: #383D47; border-radius:50%; top: 8px; left: 8px; display:block; position:absolute;}
+.ct-a-info ul li a {text-decoration: underline; color: #0B0139; font-weight: 600; letter-spacing: 0.1px;}
+.ct-promo {margin-bottom:16px;}
+.ct-promo .ct-promo-t {margin-bottom:12px; font-size:16px; line-height: 24px; font-weight: 600; letter-spacing: 0.15px;}
+.ct-promo-form {display:flex;}
+.ct-promo-form .ct-promo-input {position:relative; flex:1}
+.ct-promo-form .ct-promo-input input {width:100%; display:block; font-size:16px; line-height: 24px; letter-spacing: 0.4px; padding: 11px 12px 11px 44px; border-radius: 2px; border: 1px solid #B6BDCC;}
+.ct-promo-form .ct-promo-input:before {content: ""; display:block; position:absolute; top:0; bottom:0; left: 16px; width:20px; height: 20px; background-image: url(../images/promo.svg); margin: auto;}
+.ct-promo-form .ct-promo-button {padding-left: 12px;}
+.ct-promo-form .ct-promo-button button {color: #fff; font-size:16px; line-height: 24px; cursor:pointer; font-weight: 500; border-radius:2px; background-color: #5B46C2; padding: 12px 20px; border:0; width:100%; display:block;}
+.ct-promo-form .ct-promo-button button:disabled, .ct-promo-form .ct-promo-button button[disabled]
+{color: rgba(56, 61, 71, 0.38); cursor:default; background-color: rgba(56, 61, 71, 0.12);}
+.ch-calculate {margin-bottom:16px; padding: 16px 0; border-bottom: 1px solid #E6EBF5; border-top: 1px solid #E6EBF5;}
+.ch-calculate .calc-item {display:flex; justify-content: space-between; font-size:16px; line-height: 24px; color: #6D7382; margin-bottom:12px;}
+.ch-calculate .calc-item:last-child {margin-bottom:0;}
+.ch-calculate .calc-item .calc-r {font-weight: 500; color: #13151A;}
+.ch-calculate .calc-item .calc-r.c-red {color: #D92E27}
+.ch-calculate .calc-item .calc-l.cc-a {color: #13151A; padding: 4px 0;}
+.ch-calculate .calc-item .calc-r.cc-b {color: #13151A; font-size:24px; font-weight:600; line-height:32px}
+.cart-top .cart-right .pr-check label {color: #6D7382; padding: 0 0 0 32px}
+.cart-top .cart-right .pr-check label a {color: #0B0139; font-weight: 500}
