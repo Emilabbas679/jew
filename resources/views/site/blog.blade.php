@@ -2,7 +2,7 @@
 @section('title', __('site.blog_title'))
 @section('content')
 <!-- Blog start -->
-<section class="blog-page">
+<section class="blog-page no-page">
     <div class="centered">
         <div class="blog-page-wrap">
             <div class="bg-title">Latest Blog Posts</div>

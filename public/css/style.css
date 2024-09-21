@@ -598,6 +598,27 @@ strong,b{font-weight:700}
 .blog-item .blog-info .blog-title {font-size:20px; line-height: 28px; font-weight:600;}
 
 /* Blog view */
-.blog-view {padding: 32px 0 48px;}
+.blog-view {padding: 32px 0;}
 .blog-view .blog-view-wrap {background-color: #fff; padding: 48px 20px; box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04);}
 .blog-view-wrap .blog-content {max-width: 872px; margin: 0 auto;}
+.blg-top {position:relative; margin-bottom: 8px; padding-right: 60px;}
+.blog-view-title {font-size:36px; line-height: 44px; font-weight: 600;}
+.blg-top .pr-share {position:absolute; top:0; right:0; width:48px; height: 48px;}
+.blog-view-date {margin-bottom:24px; color: #6D7382; font-size:14px; line-height:20px; font-weight: 500;}
+.blog-main-img {margin-bottom:24px;}
+.blog-main-img img {width:100%; display:block;}
+.blog-text {font-size:16px; line-height: 24px; letter-spacing: 0.4px;}
+.blog-text p {margin-bottom:24px;}
+.blog-text img {max-width:100%; display:block; margin-bottom: 24px;}
+.product-blog-carousel .owl-dots {display:flex; justify-content: center; margin-top:32px}
+.product-blog-carousel .owl-dots .owl-dot {width:8px; height:8px; margin:0 4px; border-radius:50%; background-color: #B6BDCC;}
+.product-blog-carousel .owl-dots .owl-dot.active {background-color:#5B46C2}
+.blog-view .products {padding: 24px 0; margin-bottom:24px;}
+.blog-view .j-head {margin-bottom:16px;}
+.blog-view .j-head .j-title {text-align:left; margin-bottom:16px;}
+.product-blog-carousel.owl-carousel .owl-item img {height: 244px; object-fit: cover;}
+.blog-share {border: 1px solid #D5DCEB; border-radius:4px; padding: 20px;}
+.blog-share .bl-s {margin-bottom: 12px; color: #000; font-size:14px; line-height: 20px; font-weight: 600; letter-spacing: 0.1px;}
+.b-share {cursor:pointer; font-size:16px; line-height: 24px; font-weight: 500; padding: 12px 20px 12px 52px; position:relative; border-radius:2px; background-color: #E6EBF5; display:inline-block; vertical-align: top;}
+.b-share:before {content: ""; left: 20px; position:absolute; top:0; bottom:0; margin: auto; background-image: url(../images/share.svg); width:24px; height: 24px;}
+.no-page {margin-bottom:-24px}
