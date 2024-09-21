@@ -573,8 +573,6 @@ strong,b{font-weight:700}
 .faq-page {padding: 32px 0 80px;}
 .faq-page .faq-page-wrap {background-color: #fff; padding: 48px 20px; box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04);}
 .faq-page-wrap .faq-content {max-width: 872px; margin: 0 auto;}
-
-/* FAQ */
 .fq-accordion-section {border-radius: 4px; border: 2px solid #E6EBF5; margin-bottom:8px; cursor:pointer}
 .fq-accordion-section .fq-accordion-header {font-weight: 600; font-size:20px; line-height: 28px; padding: 24px 70px 24px 20px; position:relative;}
 .fq-accordion-header i {position:absolute; top:20px; width:36px; height: 36px; right: 20px; border-radius:4px; background-color: #E6EBF5; padding: 6px;}
@@ -585,3 +583,21 @@ strong,b{font-weight:700}
 .active .fq-accordion-header i:after {background-image: url(../images/minus.svg)}
 .fq-button {text-align:center; padding-top: 35px;}
 .fq-button a {display:inline-block; vertical-align: top; width: 314px; color: #fff; text-align: center; font-size: 20px; line-height: 24px; padding: 10px; background-color: #816E45; border: 0; cursor: pointer; max-width:100%;}
+
+/* Blog */
+.blog-page {padding: 32px 0 80px;}
+.bg-title {color: #0B0139; font-weight: 600; font-size:36px; line-height: 44px; margin-bottom:24px;}
+.blog-list {overflow:hidden; margin: 0 -12px;}
+.blog-list .blog-item {width:33.3333333333%; float:left; padding: 0 12px 24px;}
+.blog-list .blog-item:nth-child(3n+1) {clear:both;}
+.blog-list .blog-item a {display:block;}
+.blog-item .blog-image {overflow:hidden; border-radius:4px;}
+.blog-item .blog-image img {width:100%; display:block;}
+.blog-item .blog-info {padding-top: 16px;}
+.blog-item .blog-info .blog-date {color: #6D7382; font-size:14px; line-height: 20px; font-weight:500; margin-bottom:8px;}
+.blog-item .blog-info .blog-title {font-size:20px; line-height: 28px; font-weight:600;}
+
+/* Blog view */
+.blog-view {padding: 32px 0 48px;}
+.blog-view .blog-view-wrap {background-color: #fff; padding: 48px 20px; box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04);}
+.blog-view-wrap .blog-content {max-width: 872px; margin: 0 auto;}

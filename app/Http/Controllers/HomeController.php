@@ -166,5 +166,15 @@ class HomeController extends Controller
         return view('site.faq');
     }
 
+    public function blog()
+    {
+        return view('site.blog');
+    }
+
+    public function blogView()
+    {
+        return view('site.blog-view');
+    }
+
 }
 
