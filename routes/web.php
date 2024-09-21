@@ -25,6 +25,8 @@ Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 // Demo
 Route::get('/cart', [HomeController::class, 'cart']);
+Route::get('/about', [HomeController::class, 'about']);
+Route::get('/faq', [HomeController::class, 'faq']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile/favorites', [ProfileController::class, 'favorites'])->name('profile.favorites');

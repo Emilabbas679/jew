@@ -156,5 +156,15 @@ class HomeController extends Controller
         return view('site.cart');
     }
 
+    public function about()
+    {
+        return view('site.about');
+    }
+
+    public function faq()
+    {
+        return view('site.faq');
+    }
+
 }
 

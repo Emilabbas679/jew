@@ -140,13 +140,43 @@
                         <label for="e-c">I have read and approve the <a href="./">Preliminary Information Conditions</a> and <a href="./">Distance Sales Agreement.</a></label>
                     </div>
                     <div class="pr-button">
-                        <button type="submit">Checkout</button>
+                        <button type="submit" class="m-md">Checkout</button>
+                    </div>
+                    <div class="m-modal" id="pr-error">
+                        <div class="ps-a">
+                            <div class="ps-b">
+                                <div class="p-alert neg">
+                                    <div class="p-alert-close"></div>
+                                    <div class="p-alert-icon"></div>
+                                    <div class="p-alert-a">Error!</div>
+                                    <div class="p-alert-b">Lorem ipsum dolor sit amet consectetur. Diam massa neque velit tortor.</div>
+                                    <div class="pr-button">
+                                        <button type="submit">Try again</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-modal" id="pr-success">
+                        <div class="ps-a">
+                            <div class="ps-b">
+                                <div class="p-alert pos">
+                                    <div class="p-alert-close"></div>
+                                    <div class="p-alert-icon"></div>
+                                    <div class="p-alert-a">Success!</div>
+                                    <div class="p-alert-b">Lorem ipsum dolor sit amet consectetur. Diam massa neque velit tortor.</div>
+                                    <div class="pr-button">
+                                        <button type="submit">Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 <!-- Cart end -->
 <!-- Products start -->
 <section class="products">
@@ -279,6 +309,21 @@ $(document).ready(function() {
         } else {
             $('.ct-promo-button button').prop('disabled', true);
         }
+    });
+
+    $('.m-md').on('click', function(e) {
+        e.stopPropagation();
+        if($('#e-c').prop('checked') == true) {
+            $('#pr-success').show();
+        } else {
+            $('#pr-error').show();
+        }
+        $('body').addClass('vd-open')
+    });
+
+    $('.p-alert-close').on('click', function() {
+        $('body').removeClass('vd-open')
+        $(this).parents('.m-modal').hide()
     });
 
 });
