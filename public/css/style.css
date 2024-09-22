@@ -393,7 +393,7 @@ strong,b{font-weight:700}
 .rv-title {color: #0B0139; font-size:28px; line-height: 36px; font-weight: 600; margin-bottom:16px;}
 .review-list .rv-item {margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #E6EBF5;}
 .rv-item .rv-author {font-size: 14px; line-height: 20px; font-weight: 500; margin-bottom:4px;}
-.rv-item .rv-extra {display:flex; margin-bottom:12px;}
+.rv-extra {display:flex; margin-bottom:12px;}
 .rv-extra .pr-rating {margin-bottom:0;}
 .rv-extra .pr-rating ul li {width:16px; height: 16px; background-size:cover;}
 .rv-extra .rv-date {font-size:12px; line-height: 16px; letter-spacing: 0.5px; margin-left: 4px;}
@@ -665,3 +665,38 @@ strong,b{font-weight:700}
 .order-extra  .order-extra-item {margin-right: 16px; margin-bottom:12px; font-size:16px; line-height:24px; letter-spacing: 0.4px; color: #6D7382}
 .order-extra-item span {font-weight: 500; color: #13151A; padding-left: 12px;}
 .order-date {color: #383D47; font-size:14px; line-height: 20px; font-weight: 500; padding: 8px 12px; border-radius:4px; background-color: #E6EBF5; display: inline-block; vertical-align: top;}
+
+/* Testimonials */
+.testimonials-page {padding: 32px 0 80px; margin-bottom: -12px;}
+.testimonials-list {overflow:hidden; margin: 0 -6px; display:flex; flex-wrap: wrap}
+.testimonials-list .testimonial-item {padding: 0 6px 12px; width:50%; display:flex;}
+.testimonial-item .tmn-a {box-shadow: 0px 2px 5px 0px rgba(23, 30, 38, 0.04); border-radius: 4px; background-color: #fff; padding: 40px; display:flex; flex:1}
+.tmn-a .tmn-image {border-radius:50%; overflow:hidden; width:120px; height: 120px;}
+.tmn-a .tmn-image img {width:100%; display:block;}
+.tmn-a .tmn-right {padding-left: 24px; flex:1}
+.tmn-right .tmn-top {position:relative; padding-right: 36px;}
+.tmn-right .tmn-top:before {content: ""; position:absolute; top: -8px; right: -8px; background-image: url(../images/quote.svg); width:88px; height: 88px;}
+.tmn-top .tmn-name {font-size:18px; line-height: 26px; font-weight: 600; letter-spacing: 0.15px; margin-bottom:4px;}
+.tmn-top .tmn-spec {font-size:12px; line-height: 16px; letter-spacing: 0.5px; margin-bottom:4px; padding: 4px 12px; border-radius:12px; background-color: rgba(56, 61, 71, 0.12); margin-bottom:12px; display:inline-block; vertical-align: top;}
+.tmn-top .tmn-rating {margin-bottom:24px;}
+.tmn-rating ul {overflow:hidden;}
+.tmn-rating ul li {float:left; margin-right:4px; width:24px; height: 24px; background-image: url(../images/t-star.svg)}
+.tmn-comment {color: #383D47; font-size:16px; line-height: 24px; letter-spacing: 0.4px;}
+
+/* Reviews */
+.reviews-list {overflow:hidden; margin: 0 -12px; display:flex; flex-wrap: wrap}
+.reviews-list .rw-item {padding: 0 12px 24px; width:50%; display:flex;}
+.rw-item .rw-item-a {border-radius:4px; border: 1px solid #E6EBF5; padding: 16px; overflow:hidden; width:100%;}
+.rw-item .rw-image {border-radius: 4px; width:142px; background-color: #fff; overflow: hidden; border: 1px solid #E6EBF5; position: relative; float:left;}
+.rw-item .rw-image a {display:block;}
+.rw-item .rw-image img {display: block; max-width: 100%; height: 100%; max-height: 148px; margin: 0 auto;}
+.rw-item .rw-info {overflow: hidden; padding-left: 20px;}
+.rw-info .rw-title {color: #383D47; font-size:14px; line-height: 20px; font-weight: 500; margin-bottom:8px;}
+.rw-info .rw-title a {color: #383D47;}
+.rv-z {font-size: 10px; line-height: 14px; font-weight:500; margin-bottom:4px; color: #000}
+.rv-extra .rv-date-b {font-size:12px; line-height: 16px; letter-spacing: 0.5px; font-weight:500; padding-left: 8px; margin-bottom:16px;}
+.rv-extra .rv-date-b span {font-weight:400; color: #6D7382;}
+.rw-info .rv-extra {margin-bottom:0;}
+.rw-info .rv-extra .pr-rating {margin-bottom:16px;}
+.rate-product {cursor:pointer; border-radius:2px; background-color: #E6EBF5; padding: 8px 12px; font-size:14px; line-height: 20px; font-weight: 500; display:inline-block; vertical-align: top;}
+.rate-comment {font-size:14px; line-height: 20px; letter-spacing: 0.5px; margin-top:-8px}

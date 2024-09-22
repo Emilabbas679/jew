@@ -186,5 +186,20 @@ class HomeController extends Controller
         return view('site.orders');
     }
 
+    public function testimonials()
+    {
+        return view('site.testimonials');
+    }
+
+    public function reviews()
+    {
+        return view('site.reviews');
+    }
+
+    public function reviewsApproved()
+    {
+        return view('site.reviews-approved');
+    }
+
 }
 

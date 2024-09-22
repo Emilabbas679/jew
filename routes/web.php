@@ -31,6 +31,9 @@ Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/blog-view', [HomeController::class, 'blogView']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/orders', [HomeController::class, 'orders']);
+Route::get('/testimonials', [HomeController::class, 'testimonials']);
+Route::get('/reviews', [HomeController::class, 'reviews']);
+Route::get('/reviews-approved', [HomeController::class, 'reviewsApproved']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile/favorites', [ProfileController::class, 'favorites'])->name('profile.favorites');
