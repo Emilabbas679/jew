@@ -50,7 +50,44 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-product">Rate the product</div>
+                                    <div class="rate-product m-md" data-target="#rate-pr">Rate the product</div>
+                                </div>
+                            </div>
+                            <div class="product-share m-modal" id="rate-pr">
+                                <div class="ps-a">
+                                    <div class="ps-b">
+                                        <div class="share-bl">
+                                            <div class="ps-top">
+                                                <div class="ps-t">Rate the product</div>
+                                                <div class="ps-close"></div>
+                                            </div>
+                                            <div class="ps-info">Lorem ipsum dolor sit amet consectetur. Diam massa neque velit tortor.</div>
+                                            <div class="rate-v">
+                                                <span>Rate</span>
+                                            </div>
+                                            <div class="rt-rating">
+                                                <ul>
+                                                    <li class="active"></li>
+                                                    <li class="active"></li>
+                                                    <li class="active"></li>
+                                                    <li class="active"></li>
+                                                    <li></li>
+                                                </ul>
+                                            </div>
+                                            <div class="rt-comment">
+                                                <textarea placeholder="Reviews"></textarea>
+                                            </div>
+                                            <div class="rt-upload">
+                                                <div class="rt-upload-f">
+                                                    <input id="photo" type="file">
+                                                    <label for="photo" class="rt-upload-ft">
+                                                    Upload photo
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="pr-button"><button type="submit">Rate</button></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -201,6 +238,16 @@
     <script>
         $(document).ready(function() {
             
+            $('.m-md').on('click', function(e) {
+                e.stopPropagation();
+                $(($(this).attr("data-target"))).show();
+                $('body').addClass('vd-open')
+            });
+
+            $('.ps-close').on('click', function() {
+                $('body').removeClass('vd-open')
+                $(this).parents('.m-modal').hide()
+            });
 
         });
     </script>

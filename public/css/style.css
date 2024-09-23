@@ -700,3 +700,17 @@ strong,b{font-weight:700}
 .rw-info .rv-extra .pr-rating {margin-bottom:16px;}
 .rate-product {cursor:pointer; border-radius:2px; background-color: #E6EBF5; padding: 8px 12px; font-size:14px; line-height: 20px; font-weight: 500; display:inline-block; vertical-align: top;}
 .rate-comment {font-size:14px; line-height: 20px; letter-spacing: 0.5px; margin-top:-8px}
+.rate-v {display:flex; justify-content: center; margin-top: 24px;}
+.rate-v span {margin-bottom:8px; text-align:center; font-size:14px; line-height: 20px; letter-spacing: 0.1px; font-weight: 600}
+
+.rt-rating {overflow:hidden; margin-bottom: 24px; text-align:center;}
+.rt-rating ul {display: inline-block; vertical-align: top;}
+.rt-rating ul li {float:left; margin: 0 2px; width: 40px; height: 40px; background-image: url(../images/star.svg); background-size:cover;}
+.rt-rating ul li.active {background-image: url(../images/star-b.svg)}
+.rt-comment {margin-bottom:24px;}
+.rt-comment textarea {display:block; width:100%; border-radius:2px; border: 1px solid #B6BDCC; padding: 12px 16px; height: 68px;}
+.rt-upload {overflow:hidden; margin: 0 -3px 18px;}
+.rt-upload .rt-upload-f {float:left; width: 25%; padding: 0 3px 6px;}
+.rt-upload .rt-upload-f input {display:none;}
+.rt-upload .rt-upload-ft {border-radius:4px; border: 2px solid #D5DCEB; padding: 18px 8px; cursor: pointer; font-size:10px; font-weight: 500; line-height: 14px; text-align:center; display:block;}
+.rt-upload-ft:before {content: ""; display:block; width:24px; height: 24px; background-image: url(../images/photo.svg); margin: 0 auto 4px;}
