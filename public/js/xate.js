@@ -38,6 +38,25 @@ $(document).ready(function(){
        const fieldType =  $(this).prev('.s-pass').attr('type') === 'password' ? 'text' : 'password';
         $(this).prev('.s-pass').attr('type', fieldType);
         fieldType == "text" ? $(this).addClass('active') : $(this).removeClass('active')
+    });
+
+    $('.h-auth').on('click', function(e) {
+        e.stopPropagation();
+        $('.profile-menu').toggle()
     })
+
+    $('.profile-menu').on('click', function(e) {
+        e.stopPropagation();
+    })
+
+    $('.language').on('click', function(e) {
+        e.stopPropagation();
+        $('.language-list').toggle()
+    })
+
+    $(document).click(function() {
+        $('.profile-menu').hide();
+        $('.language-list').hide();
+    });
 	
 });

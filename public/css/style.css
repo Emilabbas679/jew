@@ -91,16 +91,29 @@ strong,b{font-weight:700}
 .top-menu ul li.active a, .top-menu ul li a:hover {color: #5B46C2;}
 .top-menu ul li.active a {border-bottom: 2px solid #5B46C2}
 .header-wrap .header-right {float:right; padding: 20px 0;}
-.header-right .h-items {float:left;}
+.header-right .h-items {float:left; position:relative;}
 .h-items .h-item {float:left; margin-left:20px;}
 .h-items .h-item a {display:block; width:24px; height: 24px;}
+.h-items .h-item.h-auth a {padding-right: 16px; width:40px; position:relative; background-repeat: no-repeat;}
+.h-items .h-item.h-auth a:before {content: ""; position:absolute; top:0; bottom:0; margin: auto; right:0; width:16px; height: 16px; background-image: url(../images/h-down.svg)}
 .h-items .h-item.h-search a {background-image: url(../images/search.svg)}
 .h-items .h-item.h-basket a {background-image: url(../images/basket.svg)}
 .h-items .h-item.h-favorite a {background-image: url(../images/favorite.svg)}
 .h-items .h-item.h-profile a {background-image: url(../images/profile.svg)}
-.header-right .language {float:left; padding: 2px 0;}
-.language .selected-language {font-weight: 500; font-size:14px; line-height: 20px; position:relative; cursor: pointer; padding-right:20px;}
+.h-items .h-item.h-auth a {background-image: url(../images/profile-a.svg)}
+.profile-menu {position:absolute; right:0; top:100%; background-color: #fff; width:300px; border-radius:4px; box-shadow: 0px 8px 12px 0px rgba(23, 30, 38, 0.08); padding: 32px 24px; display:none;}
+.pm-menu-top .pmt-a {font-size:12px; line-height: 16px; font-weight: 500; margin-bottom:4px; color: #6D7382;}
+.pm-menu-top .pmt-b {font-size:16px; line-height: 24px; font-weight: 600; letter-spacing: 0.15px; white-space: nowrap; text-overflow: ellipsis; overflow:hidden;}
+.pm-items ul li {margin-top: 20px;}
+.pm-items ul li a {display:block; font-size: 16px; line-height: 24px; font-weight: 500;}
+.pm-items ul li:last-child a {color: #6D7382}
+.header-right .language {float:left; padding: 2px 0; position:relative;}
+.language .selected-language {font-weight: 500; font-size:14px; line-height: 20px; position:relative; cursor: pointer; padding-right:20px; user-select: none;}
 .selected-language:after {content: ""; display:block; position:absolute; top:0; right:0; width:20px; height: 20px; background-image: url(../images/down.svg);}
+.language-list {position:absolute; right:0; top:100%; background-color: #fff; width:100%; border-radius:4px; box-shadow: 0px 8px 12px 0px rgba(23, 30, 38, 0.08); padding: 10px; display:none;}
+.language-list ul li {margin-bottom:5px;}
+.language-list ul li:last-child {margin-bottom:0}
+.language-list ul li a {font-size:14px; line-height:20px; font-weight: 500;}
 
 /* Main slider */
 .main-slider-item {position:relative;}
