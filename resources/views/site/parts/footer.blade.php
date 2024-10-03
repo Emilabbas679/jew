@@ -2,10 +2,21 @@
 <footer class="footer">
     <div class="centered">
         <div class="footer-m">
-            <div class="footer-logo">
-                <a href="./"><img src="{{asset('/images/f-logo.svg')}}"></a>
+            <div class="footer-col-a">
+                <div class="footer-logo">
+                    <a href="./"><img src="{{asset('/images/f-logo.svg')}}"></a>
+                </div>
+                <div class="footer-sl">Let’s keep in touch</div>
+                <div class="footer-subs-text">Be the first to know about new<br>products, and more!</div>
+                <div class="footer-subs-form">
+                    <form>
+                        <div class="footer-subs-input"><input type="text" placeholder="Your email address here"></div>
+                        <div class="footer-subs-button"><button type="submit"></button></div>
+                    </form>
+                </div>
             </div>
             <div class="footer-col-b">
+                <div class="f-title">Customer service</div>
                 <div class="footer-menu">
                     <ul>
                         <li><a href="{{route('testimonials')}}">Testimonials</a></li>
@@ -18,6 +29,15 @@
                 </div>
             </div>
             <div class="footer-col-c">
+                <div class="f-title">Vendors</div>
+                <div class="footer-menu">
+                    <ul>
+                        <li><a href="./">Become a Vendor</a></li>
+                        <li><a href="./">Vendor Sign in</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-col-d">
                 <div class="footer-social">
                     <div class="f-tl">Follow us:</div>
                     <ul>
@@ -31,8 +51,8 @@
                 </div>
                 <div class="footer-contact">
                     <ul>
-                        <li><a href="tel:+994550000000">+994 55 000 00 00</a></li>
-                        <li><a href="mailto:info@jewelry.com">info@jewelry.com</a></li>
+                        <li class="f-phone"><a href="tel:+994550000000">+994 55 000 00 00</a></li>
+                        <li class="f-mail"><a href="mailto:info@jewelry.com">info@jewelry.com</a></li>
                     </ul>
                 </div>
             </div>

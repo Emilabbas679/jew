@@ -16,6 +16,7 @@
                 <div class="main-slider-button">
                     <a href="#">Browse jewelry</a>
                 </div>
+                <div class="owl-dots-m"></div>
             </div>
         </div>
     </div>
@@ -82,7 +83,7 @@
 </section>
 <!-- Categories end -->
 <!-- Products start -->
-<section class="products">
+<section class="products p-m">
     <div class="centered">
         <div class="j-head">
             <h2 class="j-title">{{__('site.popular_jewelery')}}</h2>

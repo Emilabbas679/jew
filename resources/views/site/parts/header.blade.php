@@ -61,8 +61,11 @@
                                 <li><a href="{{route('logout')}}">{{__('site.logout')}}</a></li>
                             </ul>
                         </div>
-                    </diV>
+                    </div>
                     @endauth
+                    <div class="h-item h-menu">
+                        <a href="{{route('login')}}"></a>
+                    </div>
                 </div>
             </div>
         </div>

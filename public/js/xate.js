@@ -11,10 +11,10 @@ $(document).ready(function(){
         loop:true,
         items:1,
         margin:0,
-        dots:false,
+        dots:true,
         navText:false,
         nav:true,
-        autoplay:true,
+        autoplay:false,
         autoplayTimeout:5000,
     });
 
@@ -27,7 +27,29 @@ $(document).ready(function(){
         navText:false,
         nav:false,
         autoplay:false,
-        dotsEach: 1
+        dotsEach: 1,
+        responsive : {
+            0 : {
+               items:2,
+               autoWidth:true,
+               margin: 16
+            },
+            601 : {
+               items:2,
+               autoWidth:false,
+               margin: 20
+            },
+            780 : {
+               items:3,
+               autoWidth:false,
+               margin: 24
+            },
+            1050 : {
+               items:4,
+               autoWidth:false,
+               margin: 24
+            },
+        }
     });
 
     $('.product-fav').on('click', function() {
