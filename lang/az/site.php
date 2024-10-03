@@ -1,5 +1,9 @@
 <?php 
  return [
+"my_account" => "My account",
+"account" => "Account",
+"welcome" => "Welcome",
+"logout" => "Log out",
 "products" => "Products",
 "product_not_found" => "Product not found",
 "product_not_found_description" => "Lorem ipsum dolor sit amet consectetur. Diam sit morbi pharetra nullam eget.",

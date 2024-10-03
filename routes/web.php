@@ -12,10 +12,12 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\OccasionController;
 use App\Http\Controllers\Admin\MaterialController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DesignerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [HomeController::class, 'products'])->name('products');
@@ -24,20 +26,25 @@ Route::get('/product/{product_id}', [HomeController::class, 'product'])->name('p
 Route::get('/lang/{locale}', [HomeController::class, 'locale'])->name('locale');
 
 // Demo
-Route::get('/cart', [HomeController::class, 'cart']);
-Route::get('/about', [HomeController::class, 'about']);
-Route::get('/faq', [HomeController::class, 'faq']);
-Route::get('/blog', [HomeController::class, 'blog']);
-Route::get('/blog-view', [HomeController::class, 'blogView']);
-Route::get('/contact', [HomeController::class, 'contact']);
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/blog-view/{blog}', [HomeController::class, 'blogView'])->name('blog_detail');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/orders', [HomeController::class, 'orders']);
-Route::get('/testimonials', [HomeController::class, 'testimonials']);
+Route::get('/testimonials', [HomeController::class, 'testimonials'])->name('testimonials');
 Route::get('/reviews', [HomeController::class, 'reviews']);
 Route::get('/reviews-approved', [HomeController::class, 'reviewsApproved']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile/favorites', [ProfileController::class, 'favorites'])->name('profile.favorites');
+    Route::post('/profile/password', [ProfileController::class, 'password'])->name('profile.password');
     Route::match(['get', 'post'],'/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::post('/add-to-cart', [ProfileController::class, 'addToCart'])->name('profile.addToCart');
+    Route::get('/profile/cart', [ProfileController::class, 'cart'])->name('profile.cart');
+    Route::post('/profile/cart/delete', [ProfileController::class, 'cartDelete'])->name('profile.cartDelete');
+
+
 });
 
 
@@ -137,6 +144,24 @@ Route::group(['middleware' => ['dashboard']], function () {
         Route::get('/blogs/{blog}/edit', [BlogController::class, 'edit'])->middleware('can:blog_edit')->name('blogs.edit');
         Route::post('/blogs/{blog}/edit', [BlogController::class, 'update'])->middleware('can:blog_edit')->name('blogs.update');
         Route::post('/blogs/{blog}/delete', [BlogController::class, 'destroy'])->middleware('can:blog_destroy')->name('blogs.destroy');
+
+
+
+        Route::get('/faqs', [FaqController::class, 'index'])->middleware('can:faq_view')->name('faqs.index');
+        Route::get('/faqs/create', [FaqController::class, 'create'])->middleware('can:faq_create')->name('faqs.create');
+        Route::post('/faqs/create', [FaqController::class, 'store'])->middleware('can:faq_create')->name('faqs.store');
+        Route::get('/faqs/{faq}/edit', [FaqController::class, 'edit'])->middleware('can:faq_edit')->name('faqs.edit');
+        Route::post('/faqs/{faq}/edit', [FaqController::class, 'update'])->middleware('can:faq_edit')->name('faqs.update');
+        Route::post('/faqs/{faq}/delete', [MaterialController::class, 'destroy'])->middleware('can:faq_destroy')->name('faqs.destroy');
+
+
+        Route::get('/testimonials', [TestimonialController::class, 'index'])->middleware('can:testimonial_view')->name('testimonials.index');
+        Route::get('/testimonials/create', [TestimonialController::class, 'create'])->middleware('can:testimonial_create')->name('testimonials.create');
+        Route::post('/testimonials/create', [TestimonialController::class, 'store'])->middleware('can:testimonial_create')->name('testimonials.store');
+        Route::get('/testimonials/{testimonial}/edit', [TestimonialController::class, 'edit'])->middleware('can:testimonial_edit')->name('testimonials.edit');
+        Route::post('/testimonials/{testimonial}/edit', [TestimonialController::class, 'update'])->middleware('can:testimonial_edit')->name('testimonials.update');
+        Route::post('/testimonials/{testimonial}/delete', [TestimonialController::class, 'destroy'])->middleware('can:testimonial_destroy')->name('testimonials.destroy');
+
 
     });
 });

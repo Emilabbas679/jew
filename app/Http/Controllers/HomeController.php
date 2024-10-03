@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use App\Models\Category;
+use App\Models\Blog;
+use App\Models\Faq;
 use App\Models\Favorite;
 use App\Models\Product;
 use App\Models\OrderItem;
@@ -137,8 +139,6 @@ class HomeController extends Controller
            ]);
        }
 
-
-        dd($request->all());
     }
 
     public function favorites()
@@ -151,10 +151,7 @@ class HomeController extends Controller
         return view('site.my-account');
     }
 
-    public function cart()
-    {
-        return view('site.cart');
-    }
+
 
     public function about()
     {
@@ -163,17 +160,20 @@ class HomeController extends Controller
 
     public function faq()
     {
-        return view('site.faq');
+        $faqs = Faq::orderby('id', 'desc')->get();
+        return view('site.faq', compact('faqs'));
     }
 
     public function blog()
     {
-        return view('site.blog');
+        $articles = Blog::where('status', 1)->orderby('id', 'desc')->paginate(9);
+        return view('site.blog', compact('articles'));
     }
 
-    public function blogView()
+    public function blogView(Blog $blog)
     {
-        return view('site.blog-view');
+        $blogs = Blog::where('status', 1)->orderby('id', 'desc')->where('id', '<>', $blog->id)->limit(8)->get();
+        return view('site.blog-view', compact('blog','blogs'));
     }
 
     public function contact()

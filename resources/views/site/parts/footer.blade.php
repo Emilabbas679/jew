@@ -8,10 +8,10 @@
             <div class="footer-col-b">
                 <div class="footer-menu">
                     <ul>
-                        <li><a href="./">Testimonials</a></li>
-                        <li><a href="./">Blog</a></li>
-                        <li><a href="./">FAQ</a></li>
-                        <li><a href="./">Contact us</a></li>
+                        <li><a href="{{route('testimonials')}}">Testimonials</a></li>
+                        <li><a href="{{route('blog')}}">Blog</a></li>
+                        <li><a href="{{route('faq')}}">FAQ</a></li>
+                        <li><a href="{{route('contact')}}">Contact us</a></li>
                         <li><a href="./">Privacy Policy</a></li>
                         <li><a href="./">Terms of Service</a></li>
                     </ul>

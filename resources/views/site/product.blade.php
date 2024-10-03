@@ -113,10 +113,12 @@
                                             <li class="un">Unavailable</li>
                                         </ul>
                                     </div>
-                                    <form>
+                                    <form action="{{route('profile.addToCart')}}" method="post">
+                                        @csrf
+                                        <input name="product_id" value="{{$product->id}}" type="hidden">
                                         <input id="flatpickr" type="hidden" name="dates" value="" />
-                                        <input type="hidden" id="startDate" name="startDate">
-                                        <input type="hidden" id="endDate" name="endDate">
+                                        <input type="hidden" id="startDate" name="delivery_date">
+                                        <input type="hidden" id="endDate" name="return_date">
                                         <div class="add-cart">
                                             <button type="submit">Add to cart</div>
                                         </div>
@@ -598,17 +600,17 @@ let $endDate = $('#endDate');
 $("#flatpickr").flatpickr({
     mode: "range",
     showMonths: 1,
-    dateFormat: "d.m.Y", 
-    enableTime: false, 
+    dateFormat: "d.m.Y",
+    enableTime: false,
 
     inline:true,
-    monthSelectorType: 'static', 
+    monthSelectorType: 'static',
     minDate: "today",
     disable: ["27.09.2024", "28.09.2024" ],
 
     onDayCreate: function(dObj, dStr, fp, dayElem) {
         const today = new Date();
-    
+
         if (dayElem.dateObj) {
         if (dayElem.dateObj.setHours(0,0,0,0) < today.setHours(0,0,0,0)) {
             dayElem.classList.add("past-date");

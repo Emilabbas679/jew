@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlogRequest extends FormRequest
+class FaqRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,15 +18,14 @@ class BlogRequest extends FormRequest
     {
         return [
             'title' => 'required|array',
-            'title.az' => 'string|max:255|nullable',
-            'title.en' => 'string|max:255|nullable',
-            'title.ru' => 'string|max:255|nullable',
+            'title.az' => 'required|string',
+            'title.en' => 'required|string',
+            'title.ru' => 'required|string',
             'description' => 'required|array',
-            'description.az' => 'string|nullable',
-            'description.en' => 'string|nullable',
-            'description.ru' => 'string|nullable',
+            'description.az' => 'required|string',
+            'description.en' => 'required|string',
+            'description.ru' => 'required|string',
             'status' => 'required|integer',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
         ];
     }
 }

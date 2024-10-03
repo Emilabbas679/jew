@@ -1,12 +1,12 @@
 @extends('admin.layout')
-@section('title', $faq->title)
+@section('title', 'Create faq')
 @section('content')
 
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <div id="kt_content_container" class="container-xxl">
                 @include('admin.flash')
-                <form enctype="multipart/form-data" id="kt_ecommerce_add_category_form" class="form d-flex flex-column flex-lg-row" data-kt-redirect="apps/ecommerce/catalog/categories.html" method="POST" action="{{route('faqs.update', $faq->id)}}">
+                <form enctype="multipart/form-data" id="kt_ecommerce_add_category_form" class="form d-flex flex-column flex-lg-row" data-kt-redirect="apps/ecommerce/catalog/categories.html" method="POST" action="{{route('faqs.store')}}">
                     @csrf
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                         <div class="card card-flush py-4">
@@ -19,13 +19,12 @@
                                 </div>
                             </div>
                             <div class="card-body pt-0">
-                                <!--begin::Select2-->
                                 <select name="status" class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_category_status_select">
                                     <option></option>
-                                    <option value="1" @if($faq->status == 1 or $faq->status == null) selected @endif>Published</option>
-                                    <option value="2" @if($faq->status == 2) selected @endif>Unpublished</option>
+                                    <option value="1" @if(old('status') == 1 or old('status') == null) selected @endif>Published</option>
+                                    <option value="2" @if(old('status') == 2) selected @endif>Unpublished</option>
                                 </select>
-                                <div class="text-muted fs-7">Set the category status.</div>
+                                <div class="text-muted fs-7">Set the FAQ status.</div>
                                 <div class="d-none mt-10">
                                     <label for="kt_ecommerce_add_category_status_datepicker" class="form-label">Select publishing date and time</label>
                                     <input class="form-control" id="kt_ecommerce_add_category_status_datepicker" placeholder="Pick date & time" />
@@ -44,11 +43,11 @@
                                 @foreach(config('app.langs') as $lang)
                                     <div class="mb-10 fv-row">
                                         <label class="required form-label">Faq Title {{$lang['Name']}}</label>
-                                        <input type="text" name="title[{{$lang['code']}}]" class="form-control mb-2" placeholder="Faq title" value="{{$faq->getTranslation('title', $lang['code'])}}" />
+                                        <input type="text" name="title[{{$lang['code']}}]" class="form-control mb-2" placeholder="Faq title" value="{{old('title.'.$lang['code'])}}" />
                                     </div>
                                     <div class="mb-10 fv-row">
-                                        <label class="required form-label">Faq Title {{$lang['Name']}}</label>
-                                        <input type="text" name="description[{{$lang['code']}}]" class="form-control mb-2" placeholder="Faq description" value="{{$faq->getTranslation('description', $lang['code'])}}" />
+                                        <label class="required form-label">Faq description {{$lang['Name']}}</label>
+                                        <input type="text" name="description[{{$lang['code']}}]" class="form-control mb-2" placeholder="Faq description" value="{{old('description.'.$lang['code'])}}" />
                                     </div>
                                 @endforeach
                             </div>
@@ -64,5 +63,4 @@
             </div>
         </div>
     </div>
-
 @endsection

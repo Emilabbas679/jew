@@ -9,33 +9,37 @@
             </div>
             @include('site.parts.profile')
 
+
             <div class="my-profile-block">
                 <div class="pr-form">
                     <div class="pr-edit-form">
                         <div class="fr-title">Edit my profile</div>
-                        <form>
+                        <form action="{{route('profile')}}" method="post">
+
+                            @csrf
+                            @include('site.flash')
                             <div class="pr-item">
                                 <div class="pr-label">First name</div>
                                 <div class="pr-input">
-                                    <input type="text" placeholder="First name" value="{{old('name', auth()->user()->name)}}">
+                                    <input type="text" name="name" placeholder="First name" value="{{old('name', auth()->user()->name)}}">
                                 </div>
                             </div>
                             <div class="pr-item">
                                 <div class="pr-label">Last name</div>
                                 <div class="pr-input">
-                                    <input type="text" placeholder="Last name" value="{{old('surname', auth()->user()->surname)}}">
+                                    <input type="text" name="surname" placeholder="Last name" value="{{old('surname', auth()->user()->surname)}}">
                                 </div>
                             </div>
                             <div class="pr-item">
                                 <div class="pr-label">E-mail</div>
                                 <div class="pr-input">
-                                    <input type="text" placeholder="First name" value="{{old('email', auth()->user()->email)}}">
+                                    <input type="text" name="email" placeholder="First name" value="{{old('email', auth()->user()->email)}}">
                                 </div>
                             </div>
                             <div class="pr-item">
                                 <div class="pr-label">Phone number</div>
                                 <div class="pr-input">
-                                    <input type="text" placeholder="Enter your phone number (+994)" value="{{old('phone', auth()->user()->phone)}}">
+                                    <input type="text" name="phone" placeholder="Enter your phone number (+994)" value="{{old('phone', auth()->user()->phone)}}">
                                 </div>
                             </div>
                             <div class="pr-check">
@@ -47,20 +51,24 @@
                             </div>
                         </form>
                     </div>
+
+
+
                     <div class="pr-change-pass">
                         <div class="fr-title">Update account password</div>
-                        <form>
+                        <form action="{{route('profile.password')}}" method="post">
+                            @csrf
                             <div class="pr-item">
                                 <div class="pr-label">Current Password</div>
                                 <div class="pr-input p-icon">
-                                    <input class="s-pass" type="password" placeholder="Current Password">
+                                    <input class="s-pass" name="password" type="password" placeholder="Current Password">
                                     <div class="show-pass"></div>
                                 </div>
                             </div>
                             <div class="pr-item">
                                 <div class="pr-label">New Password</div>
                                 <div class="pr-input p-icon">
-                                    <input class="s-pass" type="password" placeholder="New Password">
+                                    <input class="s-pass" type="password" name="new_password" placeholder="New Password">
                                     <div class="show-pass"></div>
                                 </div>
                             </div>
@@ -73,10 +81,8 @@
                     <div class="pr-vc">Your privacy is important to us. <a href="./">View Privacy Policy.</a></div>
                 </div>
             </div>
-
         </div>
     </section>
-    <!-- My account end -->
 @endsection
 
 @section('css')

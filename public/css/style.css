@@ -174,7 +174,7 @@ strong,b{font-weight:700}
 .product-item-a .product-info {padding-top: 12px;}
 .product-info .product-title {color: #383D47; font-size:16px; line-height: 24px; font-weight: 500; margin-bottom:4px;}
 .product-price {display:flex; align-items: center;;}
-.product-price .prc-a {color: #0B0139; font-size:24px; line-height: 32px; font-weight: 600;}
+.product-price .prc-a {color: #0B0139; font-size:16px; line-height: 24px; font-weight: 600; letter-spacing: 0.15px;}
 .product-price .prc-b {color: #383D47; font-weight: normal; font-size:12px; line-height: 16px; letter-spacing: 0.5px; padding-left:4px}
 .product-item-a .product-fav {position:absolute; border-radius:50%; top:16px; right: 16px; background-color: rgba(91, 70, 194, 0.12); padding: 8px; cursor:pointer;}
 .product-item-a .product-fav:before {content: ""; display:block; width:24px; height:24px; background-position: 0 0; background-image: url(../images/fav.svg);}

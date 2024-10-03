@@ -584,6 +584,16 @@
                                     </a>
                                 </div>
                             @endcan
+                            @can('faq_view')
+                                <div class="menu-item">
+                                    <a class="menu-link" href="{{route('faqs.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">FAQ</span>
+                                    </a>
+                                </div>
+                            @endcan
 
                         </div>
                     </div>
