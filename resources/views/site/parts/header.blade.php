@@ -64,7 +64,7 @@
                     </div>
                     @endauth
                     <div class="h-item h-menu">
-                        <a href="{{route('login')}}"></a>
+                        <a href="#"></a>
                     </div>
                 </div>
             </div>
@@ -72,3 +72,38 @@
     </div>
 </header>
 <!-- Header end -->
+<!-- Mobile menu start -->
+<div class="mobile-menu">
+    <div class="mobile-menu-h">
+        <div class="m-language">
+            <ul>
+                <li @if(Config::get('app.locale') == 'az') class="active" @endif><a href="{{route('locale', 'az')}}">Aze</a></li>
+                <li @if(Config::get('app.locale') == 'en') class="active" @endif><a href="{{route('locale', 'en')}}">Eng</a></li>
+                <li @if(Config::get('app.locale') == 'ru') class="active" @endif><a href="{{route('locale', 'ru')}}">Rus</a></li>
+            </ul>
+        </div>
+        <div class="m-close"></div>
+    </div>
+    <div class="mobile-menu-b">
+        <div class="m-menu m-fr">
+            <ul>
+                <ul>
+                    <li  @if(\Request::route() != null and \Request::route()->getName() == 'home') class="active " @endif><a href="{{route('home')}}">{{__('site.home')}}</a></li>
+                    <li><a href="/">{{__('site.how_it_works')}}</a></li>
+                    <li @if(\Request::route() != null and \Request::route()->getName() == 'about') class="active " @endif><a href="{{route('about')}}" >{{__('site.about_us')}}</a></li>
+                    <li  @if(\Request::route() != null and \Request::route()->getName() == 'products') class="active " @endif><a href="{{route('products')}}">{{__('site.jewelry')}}</a></li>
+            </ul>
+        </div>
+        <div class="m-menu">
+            <ul>
+                <ul>
+                    <li><a href="{{route('blog')}}">Blog</a></li>
+                    <li><a href="{{route('testimonials')}}">Testimonials</a></li>
+                    <li><a href="./">Become a Vendor</a></li>
+                    <li><a href="{{route('faq')}}">FAQ</a></li>
+                    <li><a href="{{route('contact')}}">Contact us</a></li>
+                </ul>
+        </div>
+    </div>
+</div>
+<!-- Mobile menu end -->

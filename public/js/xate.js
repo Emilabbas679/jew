@@ -80,5 +80,13 @@ $(document).ready(function(){
         $('.profile-menu').hide();
         $('.language-list').hide();
     });
+
+    $('.h-menu').on('click', function(e) {
+        e.preventDefault();
+        $('body').addClass('mobile-open');
+    });
+    $('.m-close').on('click', function() {
+        $('body').removeClass('mobile-open');
+    });
 	
 });

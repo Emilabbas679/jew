@@ -6,7 +6,13 @@
     <div class="centered">
         <div class="faq-page-wrap">
             <div class="faq-content">
-                <h2 class="abt-title">Frequently Asked Questions</h2>
+                <h2 class="bg-title">Frequently Asked Questions</h2>
+                <div class="my-profile-head">
+                    <ul>
+                        <li class="active"><a href="./">Customers</a></li>
+                        <li><a href="./">Vendors</a></li>
+                    </ul>
+                </div>
                 <div class="faq-accordion">
 
                     @foreach($faqs as $faq)

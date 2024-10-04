@@ -24,6 +24,14 @@ Facebook: https://fb.com/xetai.isayev
 .category-list .category-item {padding: 0 10px;}
 .category-info .ct-a {margin-bottom:6px;}
 .category-info .ct-b {font-size:18px; line-height: 24px;}
+.testimonials-list .testimonial-item {width: 100%;}
+.blog-list .blog-item {width:50%;}
+.blog-list .blog-item:nth-child(3n+1) {clear:none}
+.blog-list .blog-item:nth-child(2n+1) {clear:both}
+.h-menu {display:block;}
+}
+@media only screen and (max-width:700px) {
+.blog-list .blog-item {width:100%;}
 }
 @media only screen and (max-width:820px) {
 .main-slider-item .main-slider-info {position:static; display:block;}
@@ -46,6 +54,13 @@ Facebook: https://fb.com/xetai.isayev
 .footer-m>div {width:100%;}
 .footer-m .footer-col-b, .footer-m .footer-col-c {width:50%;}
 .footer-m .footer-col-d {margin-top:12px;}
+.lg-page {padding: 64px 0;}
+.about-page, .testimonials-page, .contact-page, .faq-page {padding: 28px 0 72px}
+.about-page .about-page-wrap, .blog-view .blog-view-wrap, .contact-page .contact-page-wrap, .faq-page .faq-page-wrap {padding: 40px 20px;}
+.bg-title {font-size:32px; line-height: 40px;}
+.testimonial-item .tmn-a {padding: 30px;}
+.blog-view {padding: 28px 0;}
+.blog-view-title {font-size:28px; line-height: 36px;}
 }
 @media only screen and (max-width:600px) {
 .centered {padding: 0 16px}
@@ -72,6 +87,27 @@ Facebook: https://fb.com/xetai.isayev
 .product-info .product-title {font-size:14px; line-height:20px;}
 .footer {padding: 32px 0;}
 .footer-logo img {height: 48px;}
+.lg-page {padding: 48px 0;}
+.lg-page-wrap .lg-form {padding: 48px 16px}
+.about-page, .testimonials-page, .contact-page, .faq-page {padding: 24px 0 64px}
+.about-page .centered, .blog-view .centered, .contact-page .centered, .faq-page .centered {padding:0}
+.about-page .about-page-wrap, .blog-view .blog-view-wrap, .contact-page .contact-page-wrap, .faq-page .faq-page-wrap {padding: 32px 16px;}
+.bg-title {font-size:28px; line-height: 36px;}
+.testimonial-item .tmn-a {padding: 20px 16px;}
+.tmn-a .tmn-image {width: 72px; height: 72px}
+.tmn-a .tmn-right {padding-left: 12px}
+.tmn-top .tmn-name {font-size:16px; line-height: 22px;}
+.tmn-top .tmn-spec {margin-bottom:8px;}
+.tmn-top .tmn-rating {margin-bottom:16px;}
+.tmn-rating ul li {width:20px; height: 20px; background-size:cover;}
+.tmn-right .tmn-top:before {width:36px; height: 36px; background-size:cover;}
+.tmn-comment {font-size:14px; line-height: 20px; letter-spacing: 0.5px;}
+.blog-view {padding: 24px 0;}
+.blog-view-title {font-size:20px; line-height: 28px;}
+.m-modal .ps-a {padding: 20px 16px}
+.fq-accordion-section .fq-accordion-header {padding: 20px 70px 20px 20px}
+.mobile-menu .mobile-menu-h {padding: 12px 16px}
+.mobile-menu .mobile-menu-b {top: 57px;}
 }
 @media only screen and (max-width:500px) {
 .category-item-a .category-info {padding: 16px 10px 24px}

@@ -61,7 +61,7 @@
 <!-- Blog start -->
 <section class="blog-page">
     <div class="centered">
-        <div class="blog-page-wrap">
+        <div class="blog-page-wrap b-zr">
             <div class="bg-title">Latest Blog Posts</div>
             <div class="blog-list">
                 @foreach($blogs as $item)
