@@ -8,6 +8,16 @@
             <div class="product-view-a">
                 <div class="product-view-left">
                    <div class="product-gallery">
+                       @if(count($product->files) > 0)
+                           <div class="slider-big-image">
+                               <img src="{{asset('/storage/'.collect($product->files)->first())}}" id="big-image">
+                           </div>
+
+                       @else
+                           <div class="slider-big-image">
+                               <img src="{{asset('/storage/'.$product->cover)}}" id="big-image">
+                           </div>
+                       @endif
                         <div class="slider-thumbs">
                             @if($product->video != null)
                                 <div class="slider-video">
@@ -26,17 +36,6 @@
 
                             </div>
                         </div>
-                       @if(count($product->files) > 0)
-                           <div class="slider-big-image">
-                               <img src="{{asset('/storage/'.collect($product->files)->first())}}" id="big-image">
-                           </div>
-
-                       @else
-                           <div class="slider-big-image">
-                               <img src="{{asset('/storage/'.$product->cover)}}" id="big-image">
-                           </div>
-                       @endif
-
                     </div>
                 </div>
                 <div class="product-view-right">
@@ -78,22 +77,22 @@
                         <div class="pr-spec-list">
                             <ul>
                                 @if($product->category)
-                                    <li>Type:<b>{{$product->category->title}}</b></li>
+                                    <li><span>Type:</span><b>{{$product->category->title}}</b></li>
                                 @endif
                                 @if($product->size != 0 and $product->size != null)
-                                        <li>Size:<b>{{$product->size}}</b></li>
+                                        <li><span>Size:</span><b>{{$product->size}}</b></li>
                                 @endif
                                 @if($product->occasion )
-                                    <li>Occasion:<b>{{$product->occasion->title}}</b></li>
+                                    <li><span>Occasion:</span><b>{{$product->occasion->title}}</b></li>
                                 @endif
                                 @if($product->color )
-                                    <li>Color:<b>{{$product->color->title}}</b></li>
+                                    <li><span>Color:</span><b>{{$product->color->title}}</b></li>
                                 @endif
                                 @if($product->material )
-                                    <li>Material:<b>{{$product->material->title}}</b></li>
+                                    <li><span>Material:</span><b>{{$product->material->title}}</b></li>
                                 @endif
                                 @if($product->designer )
-                                    <li>Designer:<b>{{$product->designer->title}}</b></li>
+                                    <li><span>Designer:</span><b>{{$product->designer->title}}</b></li>
                                 @endif
                             </ul>
                         </div>
@@ -260,7 +259,7 @@
 </section>
 <!-- Product review end -->
 <!-- Products start -->
-<section class="products br-b">
+<section class="products br-b pr-first">
     <div class="centered">
         <div class="j-head">
             <h2 class="j-title">You Might Also Like</h2>
