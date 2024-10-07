@@ -32,7 +32,7 @@
                 <div class="f-title">Vendors</div>
                 <div class="footer-menu">
                     <ul>
-                        <li><a href="./">Become a Vendor</a></li>
+                        <li><a href="./become-a-vendor">Become a Vendor</a></li>
                         <li><a href="./">Vendor Sign in</a></li>
                     </ul>
                 </div>
