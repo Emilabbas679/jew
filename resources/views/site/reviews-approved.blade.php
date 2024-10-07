@@ -50,8 +50,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                                 </div>
+                                <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -76,8 +76,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                                 </div>
+                                <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -102,8 +102,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                                 </div>
+                                <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -128,8 +128,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                                 </div>
+                                <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -154,8 +154,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                                 </div>
+                                <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -180,8 +180,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                                 </div>
+                                <div class="rate-comment">Lorem ipsum dolor sit amet consectetur. Lobortis ut tincidunt vitae velit. Nec et nisi at arcu. Eu augue laoreet scelerisque sapien amet sed tincidunt porta sed.</div>
                             </div>
                         </div>
                     </div>

@@ -88,5 +88,13 @@ $(document).ready(function(){
     $('.m-close').on('click', function() {
         $('body').removeClass('mobile-open');
     });
+
+    $('.j-filter-button').on('click', function() {
+        $('body').addClass('filter-open');
+    });
+    $('.j-filter-close').on('click', function(e) {
+        e.stopPropagation();
+        $('body').removeClass('filter-open');
+    });
 	
 });

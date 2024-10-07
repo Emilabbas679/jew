@@ -201,5 +201,10 @@ class HomeController extends Controller
         return view('site.reviews-approved');
     }
 
+    public function productReviews()
+    {
+        return view('site.product-reviews');
+    }
+
 }
 

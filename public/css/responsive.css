@@ -18,6 +18,16 @@ Facebook: https://fb.com/xetai.isayev
 @media only screen and (max-width:1200px) {
 .product-view-a .product-view-left {float:none; max-width:100%; margin: 0 auto 40px; width:700px;}
 .product-view-a .product-view-right {padding-left: 0;}
+.cart-top {display:block;}
+.cart-top .cart-left {margin-bottom:20px;}
+.cart-info .cart-info-a {max-width:none;}
+.cart-top .cart-right {max-width:100%; width:600px; margin:0 auto;}
+.rw-info .rv-extra {flex-direction: column;}
+.rw-info .rv-extra .rv-date-b {padding-left:0;}
+.j-filter {margin-bottom:20px;}
+.j-filter-sort {width:20%;}
+.j-filter-list {flex-wrap: wrap; justify-content: flex-end;}
+.j-filter-list .j-filter-item {padding-bottom:12px; width: 33.333333333333%;}
 }
 @media only screen and (max-width:1100px) {
 .category-item-a .category-image {padding: 10px 0;}
@@ -37,6 +47,18 @@ Facebook: https://fb.com/xetai.isayev
 .blog-list .blog-item:nth-child(3n+1) {clear:none}
 .blog-list .blog-item:nth-child(2n+1) {clear:both}
 .h-menu {display:block;}
+.reviews-list .rw-item {width:100%;}
+.rw-info .rv-extra {flex-direction: row;}
+.rw-info .rv-extra .rv-date-b {padding-left:8px;}
+.order-item .order-top {flex-direction: column;}
+.order-top-right .order-i {margin: 0 48px 0 0; padding: 20px 0 0 0}
+.order-top-right .order-i:last-child {margin: 0}
+.product-list .product-item {width:33.33333333333%;}
+/* .product-list .product-item:nth-child(3n+1) {clear:both;}
+.product-list .product-item:nth-child(4n+1) {clear:none;} */
+}
+@media only screen and (min-width:821px) {
+.select2-dropdown {width: 356px !important; }
 }
 @media only screen and (max-width:820px) {
 .main-slider-item .main-slider-info {position:static; display:block;}
@@ -74,6 +96,35 @@ Facebook: https://fb.com/xetai.isayev
 .pr-form {padding: 40px 20px;}
 .product-view-a {padding: 24px;}
 .product-view-a .product-view-left {margin-bottom:32px;}
+.ct-title {font-size:34px; line-height: 40px;}
+.cart-info-b .cart-price {display:none;}
+.bs-m {display:flex;}
+.cart-info-b .cart-dates .ctd {padding-right:0;}
+.orders-list .order-item {padding: 20px;}
+.p-dest {display:none;}
+.p-mob {display:flex;}
+.order-extra {flex-direction: column;}
+.products-page {padding: 28px 0 64px;}
+.j-filter {margin-bottom:24px;}
+.j-filter-list-wrap {position: fixed; top: 0; right: 0; z-index: 100; width: 100%; bottom: 0; background-color: #fff; left: 0; min-width: 320px; display:block; transition: all 0.25s; -webkit-transition: all 0.25s; transform: translateY(100%); -webkit-transform: translateY(100%);}
+.j-filter-list-wrap .j-filter-list-a {overflow-y: auto; position: absolute; top: 64px; left: 0; width: 100%; bottom: 0; display:block; padding: 24px 20px;}
+.j-filter-sort {width:50%;}
+.j-filter-button {display:block; width:50%;}
+.product-list {margin: 0 -9px;}
+.product-list .product-item {padding: 0 9px 18px;}
+.j-filter-list .j-filter-item {width:50%;}
+.filter-open .j-filter-list-wrap {transform: translateY(0%); -webkit-transform: translateY(0%);}
+.filter-open .j-filter-button .j-filter-item {border:0; padding:16px 40px 16px 48px}
+.filter-open .j-filter-close {display:block;}
+.j-filter-button .j-filter-item:before {left: 20px;}
+.j-filter-mob, .j-mobile-submit  {display:block;}
+.j-filter-list {margin: 0 -6px;}
+.j-md {width:100%;}
+}
+@media only screen and (max-width:760px) {
+.product-list .product-item {width:50%;}
+/* .product-list .product-item:nth-child(2n+1) {clear:both;}
+.product-list .product-item:nth-child(3n+1) {clear:none;} */
 }
 @media only screen and (max-width:700px) {
 .blog-list .blog-item {width:100%;}
@@ -133,7 +184,7 @@ Facebook: https://fb.com/xetai.isayev
 .my-profile-block {border-radius: 0; margin: 0 -16px}
 .pr-form {padding: 32px 16px;}
 .product-view-a {padding: 16px; margin-top:0;}
-.product-view .centered, .review .centered {padding: 0;}
+.product-view .centered, .review .centered, .cart-page .centered {padding: 0;}
 .product-gallery {padding-left:0;}
 .product-gallery .slider-thumbs {position:static;}
 .slider-big-image {margin-bottom:12px;}
@@ -146,6 +197,53 @@ Facebook: https://fb.com/xetai.isayev
 .product-view-a .product-view-left {margin-bottom:24px;}
 .review .review-wrap {padding: 24px 16px}
 .pr-first {padding-top: 16px;}
+.ct-title {font-size:28px; line-height: 36px;}
+.cart-item .cart-image {width: 90px;}
+.cart-item .cart-image img {max-height: 94px;}
+.cart-item .cart-info {padding-left: 8px;}
+.cart-info .cart-info-a {margin-bottom:12px;}
+.cart-info-a .ct-pr-title {font-size:14px; line-height: 20px;}
+.cart-info-b .cart-dates .ctd {font-size:12px; line-height: 16px; margin-bottom:8px;}
+.cart-top .cart-left, .cart-top .cart-right {border-radius:0;}
+.cart-list .cart-item {padding-bottom:16px;}
+.cart-top .cart-left {padding: 24px 16px 0;}
+.cart-top .cart-right {padding: 24px 16px;}
+.cr-promotion {top: 5px; left: 5px; font-size:10px; line-height: 14px; letter-spacing: 0;}
+.mp-wrap {padding: 24px 16px;}
+.rw-item .rw-image, .order-body .order-image {width:90px;}
+.rw-item .rw-image img, .order-body .order-image img {max-height: 94px;}
+.rw-item .rw-info {min-height: 96px; padding-left: 8px;}
+.rate-product {margin: 12px 0 0 0;}
+.reviews-list .rw-item {padding-bottom:16px}
+.rate-comment {margin-top: 12px; padding-left: 0;}
+.orders-list .order-item {padding: 16px; margin-bottom:16px;}
+.order-top-right {margin-top: 16px; flex-direction: column;}
+.order-top-right .order-i {padding: 0; white-space: nowrap;}
+.order-top-right .order-i:last-child{padding-top: 8px;}
+.order-info .order-info-a {margin-bottom:8px;}
+.order-info-a .order-a-title {font-size:14px; line-height: 20px;}
+.order-body .order-info {padding-left: 8px; min-height: 96px;}
+.order-extra .order-extra-item {font-size:12px; line-height: 16px; margin-bottom:8px;}
+.order-extra .order-extra-item:last-child {margin:0;}
+.order-extra-c {padding-left:0; margin-top: 16px;}
+.order-id {font-size:14px;}
+.products-page {padding: 24px 0 64px;}
+.product-list {margin: 0 -6px;}
+.product-list .product-item {padding: 0 6px 12px;}
+.filter-open .j-filter-button .j-filter-item {border:0; padding:16px 36px 16px 44px}
+.j-filter-close {right: 16px;}
+.j-filter-list-wrap .j-filter-list-a {padding: 24px 16px;}
+.j-filter-list .j-filter-item {width:100%; padding:0 0 12px 0;}
+.j-filter-list {margin: 0}
+.j-filter-list-wrap .j-filter-list-a {top: 56px}
+.j-filter-mob.j-filter-item {padding: 16px 40px 16px 48px;}
+}
+@media only screen and (max-width:550px) {
+.rw-info .rv-extra {flex-direction: column;}
+.rw-info .rv-extra .rv-date-b {margin-bottom:0; padding-left:0;}
+.rw-info .rv-extra .pr-rating {margin-bottom:8px;}
+.j-color-list ul {margin: 0 -6px -12px;}
+.j-color-list ul li {padding: 0 6px 12px;}
 }
 @media only screen and (max-width:500px) {
 .category-item-a .category-info {padding: 16px 10px 24px}

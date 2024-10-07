@@ -43,10 +43,18 @@
                                                     @if($item->product->sale_price != 0 and $item->product->sale_price != null)
                                                         <div class="prc-c">$ {{$item->product->price}}</div>
                                                     @endif
-
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="product-price bs-m">
+                                        <div class="prc-a">$ @if($item->product->sale_price != 0 or $item->product->sale_price != null) {{$item->product->sale_price}} @else {{$item->product->price}} @endif/</div>
+                                        <div class="prc-b"> {{__('site.per_day')}}</div>
+
+                                        @if($item->product->sale_price != 0 and $item->product->sale_price != null)
+                                            <div class="prc-c">$ {{$item->product->price}}</div>
+                                        @endif
+
                                     </div>
                                 </div>
 

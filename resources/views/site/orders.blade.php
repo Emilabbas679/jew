@@ -34,10 +34,10 @@
                             <div class="order-top">
                                 <div class="order-top-left">
                                     <div class="order-status finished">Finished</div>
-                                    <div class="order-id">Order ID:<span>#659347590</span></div>
+                                    <div class="order-id"><div>Order ID:</div><span>#659347590</span></div>
                                 </div>
                                 <div class="order-top-right">
-                                    <div class="order-i">Order Date:<span>10 Sep, 2024</span></div>
+                                    <div class="order-i"><div>Order Date:</div><span>10 Sep, 2024</span></div>
                                     <div class="order-i">Total price:<span>$ 150.00</span></div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="order-info">
                                     <div class="order-info-a">
                                         <h2 class="order-a-title"><a href="./">Emerald Shaped Morganite</a></h2>
-                                        <div class="product-price">
+                                        <div class="product-price p-dest">
                                             <div class="prc-a">$ 37.00  /</div>
                                             <div class="prc-b"> Per Day</div>
                                         </div>
@@ -60,6 +60,12 @@
                                         <div class="order-extra-item">Type:<span>Rings</span></div>
                                         <div class="order-extra-item">Color:<span>Multicolor</span></div>
                                         <div class="order-extra-item">Material:<span>Gold</span></div>
+                                    </div>
+                                </div>
+                                <div class="order-extra-c">
+                                    <div class="product-price p-mob">
+                                        <div class="prc-a">$ 37.00  /</div>
+                                        <div class="prc-b"> Per Day</div>
                                     </div>
                                     <div class="order-date">10 Sep, 2024 - 17 Sep, 2024</div>
                                 </div>
@@ -74,7 +80,7 @@
                                 <div class="order-info">
                                     <div class="order-info-a">
                                         <h2 class="order-a-title"><a href="./">Emerald Shaped Morganite</a></h2>
-                                        <div class="product-price">
+                                        <div class="product-price p-dest">
                                             <div class="prc-a">$ 37.00  /</div>
                                             <div class="prc-b"> Per Day</div>
                                             <div class="prc-c">$ 74.00</div>
@@ -86,6 +92,13 @@
                                         <div class="order-extra-item">Color:<span>Multicolor</span></div>
                                         <div class="order-extra-item">Material:<span>Gold</span></div>
                                     </div>
+                                </div>
+                                <div class="order-extra-c">
+                                    <div class="product-price p-mob">
+                                        <div class="prc-a">$ 37.00  /</div>
+                                        <div class="prc-b"> Per Day</div>
+                                        <div class="prc-c">$ 74.00</div>
+                                    </div>
                                     <div class="order-date">10 Sep, 2024 - 17 Sep, 2024</div>
                                 </div>
                             </div>
@@ -94,10 +107,10 @@
                             <div class="order-top">
                                 <div class="order-top-left">
                                     <div class="order-status pending">Pending</div>
-                                    <div class="order-id">Order ID:<span>#659347590</span></div>
+                                    <div class="order-id"><div>Order ID:</div><span>#659347590</span></div>
                                 </div>
                                 <div class="order-top-right">
-                                    <div class="order-i">Order Date:<span>10 Sep, 2024</span></div>
+                                    <div class="order-i"><div>Order Date:</div><span>10 Sep, 2024</span></div>
                                     <div class="order-i">Total price:<span>$ 150.00</span></div>
                                 </div>
                             </div>
@@ -110,7 +123,7 @@
                                 <div class="order-info">
                                     <div class="order-info-a">
                                         <h2 class="order-a-title"><a href="./">Emerald Shaped Morganite</a></h2>
-                                        <div class="product-price">
+                                        <div class="product-price p-dest">
                                             <div class="prc-a">$ 37.00  /</div>
                                             <div class="prc-b"> Per Day</div>
                                         </div>
@@ -121,6 +134,12 @@
                                         <div class="order-extra-item">Color:<span>Multicolor</span></div>
                                         <div class="order-extra-item">Material:<span>Gold</span></div>
                                     </div>
+                                </div>
+                                <div class="order-extra-c">
+                                    <div class="product-price p-mob">
+                                        <div class="prc-a">$ 37.00  /</div>
+                                        <div class="prc-b"> Per Day</div>
+                                    </div>
                                     <div class="order-date">10 Sep, 2024 - 17 Sep, 2024</div>
                                 </div>
                             </div>
@@ -129,10 +148,10 @@
                             <div class="order-top">
                                 <div class="order-top-left">
                                     <div class="order-status cancelled">Cancelled</div>
-                                    <div class="order-id">Order ID:<span>#659347590</span></div>
+                                    <div class="order-id"><div>Order ID:</div><span>#659347590</span></div>
                                 </div>
                                 <div class="order-top-right">
-                                    <div class="order-i">Order Date:<span>10 Sep, 2024</span></div>
+                                    <div class="order-i"><div>Order Date:</div><span>10 Sep, 2024</span></div>
                                     <div class="order-i">Total price:<span>$ 150.00</span></div>
                                 </div>
                             </div>
@@ -145,7 +164,7 @@
                                 <div class="order-info">
                                     <div class="order-info-a">
                                         <h2 class="order-a-title"><a href="./">Emerald Shaped Morganite</a></h2>
-                                        <div class="product-price">
+                                        <div class="product-price p-dest">
                                             <div class="prc-a">$ 37.00  /</div>
                                             <div class="prc-b"> Per Day</div>
                                         </div>
@@ -156,6 +175,12 @@
                                         <div class="order-extra-item">Color:<span>Multicolor</span></div>
                                         <div class="order-extra-item">Material:<span>Gold</span></div>
                                     </div>
+                                </div>
+                                <div class="order-extra-c">
+                                    <div class="product-price p-mob">
+                                        <div class="prc-a">$ 37.00  /</div>
+                                        <div class="prc-b"> Per Day</div>
+                                    </div>
                                     <div class="order-date">10 Sep, 2024 - 17 Sep, 2024</div>
                                 </div>
                             </div>
@@ -164,10 +189,10 @@
                             <div class="order-top">
                                 <div class="order-top-left">
                                     <div class="order-status approved">Approved</div>
-                                    <div class="order-id">Order ID:<span>#659347590</span></div>
+                                    <div class="order-id"><div>Order ID:</div><span>#659347590</span></div>
                                 </div>
                                 <div class="order-top-right">
-                                    <div class="order-i">Order Date:<span>10 Sep, 2024</span></div>
+                                    <div class="order-i"><div>Order Date:</div><span>10 Sep, 2024</span></div>
                                     <div class="order-i">Total price:<span>$ 150.00</span></div>
                                 </div>
                             </div>
@@ -180,7 +205,7 @@
                                 <div class="order-info">
                                     <div class="order-info-a">
                                         <h2 class="order-a-title"><a href="./">Emerald Shaped Morganite</a></h2>
-                                        <div class="product-price">
+                                        <div class="product-price p-dest">
                                             <div class="prc-a">$ 37.00  /</div>
                                             <div class="prc-b"> Per Day</div>
                                         </div>
@@ -191,6 +216,12 @@
                                         <div class="order-extra-item">Color:<span>Multicolor</span></div>
                                         <div class="order-extra-item">Material:<span>Gold</span></div>
                                     </div>
+                                </div>
+                                <div class="order-extra-c">
+                                    <div class="product-price p-mob">
+                                        <div class="prc-a">$ 37.00  /</div>
+                                        <div class="prc-b"> Per Day</div>
+                                    </div>
                                     <div class="order-date">10 Sep, 2024 - 17 Sep, 2024</div>
                                 </div>
                             </div>
@@ -199,10 +230,10 @@
                             <div class="order-top">
                                 <div class="order-top-left">
                                     <div class="order-status delivered">Delivered</div>
-                                    <div class="order-id">Order ID:<span>#659347590</span></div>
+                                    <div class="order-id"><div>Order ID:</div><span>#659347590</span></div>
                                 </div>
                                 <div class="order-top-right">
-                                    <div class="order-i">Order Date:<span>10 Sep, 2024</span></div>
+                                    <div class="order-i"><div>Order Date:</div><span>10 Sep, 2024</span></div>
                                     <div class="order-i">Total price:<span>$ 150.00</span></div>
                                 </div>
                             </div>
@@ -215,7 +246,7 @@
                                 <div class="order-info">
                                     <div class="order-info-a">
                                         <h2 class="order-a-title"><a href="./">Emerald Shaped Morganite</a></h2>
-                                        <div class="product-price">
+                                        <div class="product-price p-dest">
                                             <div class="prc-a">$ 37.00  /</div>
                                             <div class="prc-b"> Per Day</div>
                                         </div>
@@ -225,6 +256,13 @@
                                         <div class="order-extra-item">Type:<span>Rings</span></div>
                                         <div class="order-extra-item">Color:<span>Multicolor</span></div>
                                         <div class="order-extra-item">Material:<span>Gold</span></div>
+                                    </div>
+                                </div>
+                                <div class="order-extra-c">
+                                    <div class="product-price p-mob">
+                                        <div class="prc-a">$ 37.00  /</div>
+                                        <div class="prc-b"> Per Day</div>
+                                        <div class="prc-c">$ 74.00</div>
                                     </div>
                                     <div class="order-date">10 Sep, 2024 - 17 Sep, 2024</div>
                                 </div>

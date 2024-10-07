@@ -10,119 +10,139 @@
             </div>
             <form id="filterForm">
                 <div class="j-filter">
-                    <div class="j-filter-list">
+                    <div class="j-filter-button">
                         <div class="j-filter-item">
-                            <div class="j-select-a">
-                                <select class="j-select j-cat" name="category_id" onchange="this.form.submit()">
-                                    <option></option>
-                                    @foreach($categories as $item)
-                                        <option value="{{$item->id}}" @if($request->has('category_id') and $request->category_id == $item->id) selected @endif>{{$item->title}}</option>
-                                    @endforeach
+                            Filter by
+                            <div class="j-down"></div>
+                        </div>
+                    </div>
+                    <div class="j-filter-list-wrap">
+                        <div class="j-filter-item j-filter-mob">
+                            Filter by
+                            <div class="j-filter-close"></div>
+                        </div>
+                        <div class="j-filter-list-a">
+                            <div class="j-filter-list">
+                                <div class="j-filter-item">
+                                    <div class="j-select-a">
+                                        <select class="j-select j-cat" name="category_id" onchange="this.form.submit()">
+                                            <option></option>
+                                            @foreach($categories as $item)
+                                                <option value="{{$item->id}}" @if($request->has('category_id') and $request->category_id == $item->id) selected @endif>{{$item->title}}</option>
+                                            @endforeach
 
-                                </select>
-                            </div>
-                        </div>
-                        <div class="j-filter-item">
-                            <div class="j-select-a">
-                                <select class="j-select j-sub" name="occasion_id" onchange="this.form.submit()">
-                                    <option></option>
-                                    @foreach($occasions as $item)
-                                        <option value="{{$item->id}}" @if($request->has('occasion_id') and $request->occasion_id == $item->id) selected @endif>{{$item->title}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="j-filter-item">
-                            <div class="j-filter-a">
-                                <div class="j-filter-z j-price">
-                                    <div class="j-value"></div>
-                                    <div class="j-placeholder">Price range</div>
-                                    <span class="j-down"></span>
-                                    <span class="j-close"></span>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="j-md">
-                                    <div class="j-range">
-                                        <div id="j-slider"></div>
-                                        <div class="j-range-inputs">
-                                            <div class="j-input">
-                                                <div class="j-input-val">
-                                                    <span id="range-min">0</span> <span> $</span>
-                                                </div>
-                                            </div>
-                                            <div class="j-input">
-                                                <div class="j-input-val">
-                                                    <span id="range-max">1000</span>
-                                                    <span> $</span>
+                                <div class="j-filter-item">
+                                    <div class="j-select-a">
+                                        <select class="j-select j-sub" name="occasion_id" onchange="this.form.submit()">
+                                            <option></option>
+                                            @foreach($occasions as $item)
+                                                <option value="{{$item->id}}" @if($request->has('occasion_id') and $request->occasion_id == $item->id) selected @endif>{{$item->title}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="j-filter-item">
+                                    <div class="j-filter-a">
+                                        <div class="j-filter-z j-price">
+                                            <div class="j-value"></div>
+                                            <div class="j-placeholder">Price range</div>
+                                            <span class="j-down"></span>
+                                            <span class="j-close"></span>
+                                        </div>
+                                        <div class="j-md">
+                                            <div class="j-range">
+                                                <div id="j-slider"></div>
+                                                <div class="j-range-inputs">
+                                                    <div class="j-input">
+                                                        <div class="j-input-val">
+                                                            <span id="range-min">0</span> <span> $</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="j-input">
+                                                        <div class="j-input-val">
+                                                            <span id="range-max">1000</span>
+                                                            <span> $</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="j-filter-item">
-                            <div class="j-select-a">
-                                <select class="j-select j-material" name="material_id" onchange="this.form.submit()">
-                                    <option></option>
-                                    @foreach($materials as $item)
-                                        <option value="{{$item->id}}" @if($request->has('material_id') and $request->material_id == $item->id) selected @endif>{{$item->title}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="j-filter-item">
-                            <div class="j-filter-a">
-                                <div class="j-filter-z j-color">
-                                    <div class="j-value"></div>
-                                    <div class="j-placeholder">Colors</div>
-                                    <span class="j-down"></span>
-                                    <span class="j-close"></span>
-                                </div>
-                                <div class="j-md">
-                                    <div class="j-color-list">
-                                        <ul id="color-list">
-                                            @foreach($colors as $item)
-                                                <li>
-                                                    <input id="{{$item->title}}" type="checkbox" name="colors[]" @if($request->has('colors') and in_array($item->id, $request->colors)) checked @endif value="{{$item->id}}" onchange="this.form.submit()">
-                                                    <label for="{{$item->title}}">
-                                                        @if($item->id == 12)
-                                                        <i style="background: {{$item->hex}}; "></i><span>{{$item->title}}</span>
-                                                        @else
-                                                            <i style="background-color: {{$item->hex}};  @if($item->id == 4) border-color:#D5DCEB  @else border-color: {{$item->hex}} @endif"></i><span>{{$item->title}}</span>
-
-                                                        @endif
-                                                    </label>
-                                                </li>
+                                <div class="j-filter-item">
+                                    <div class="j-select-a">
+                                        <select class="j-select j-material" name="material_id" onchange="this.form.submit()">
+                                            <option></option>
+                                            @foreach($materials as $item)
+                                                <option value="{{$item->id}}" @if($request->has('material_id') and $request->material_id == $item->id) selected @endif>{{$item->title}}</option>
                                             @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="j-filter-item">
+                                    <div class="j-filter-a">
+                                        <div class="j-filter-z j-color">
+                                            <div class="j-value"></div>
+                                            <div class="j-placeholder">Colors</div>
+                                            <span class="j-down"></span>
+                                            <span class="j-close"></span>
+                                        </div>
+                                        <div class="j-md">
+                                            <div class="j-color-list">
+                                                <ul id="color-list">
+                                                    @foreach($colors as $item)
+                                                        <li>
+                                                            <input id="{{$item->title}}" type="checkbox" name="colors[]" @if($request->has('colors') and in_array($item->id, $request->colors)) checked @endif value="{{$item->id}}" onchange="this.form.submit()">
+                                                            <label for="{{$item->title}}">
+                                                                @if($item->id == 12)
+                                                                <i style="background: {{$item->hex}}; "></i><span>{{$item->title}}</span>
+                                                                @else
+                                                                    <i style="background-color: {{$item->hex}};  @if($item->id == 4) border-color:#D5DCEB  @else border-color: {{$item->hex}} @endif"></i><span>{{$item->title}}</span>
 
-                                        </ul>
+                                                                @endif
+                                                            </label>
+                                                        </li>
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="j-filter-item">
+                                    <div class="j-filter-a">
+                                        <div class="j-filter-z j-designer">
+                                            <div class="j-value"></div>
+                                            <div class="j-placeholder">Designers</div>
+                                            <span class="j-down"></span>
+                                            <span class="j-close"></span>
+                                        </div>
+                                        <div class="j-md">
+                                            <div class="j-designer-list">
+                                                <ul id="designer-list">
+                                                    @foreach($designers as $item)
+                                                        <li>
+                                                            <input id="d{{$item->id}}" type="checkbox" name="designers[]"  @if($request->has('designers') and in_array($item->id, $request->designers)) checked @endif value="{{$item->id}}" onchange="this.form.submit()">
+                                                            <label for="d{{$item->id}}">{{$item->title}}</label>
+                                                        </li>
+                                                    @endforeach
+
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="j-filter-item">
-                            <div class="j-filter-a">
-                                <div class="j-filter-z j-designer">
-                                    <div class="j-value"></div>
-                                    <div class="j-placeholder">Designers</div>
-                                    <span class="j-down"></span>
-                                    <span class="j-close"></span>
-                                </div>
-                                <div class="j-md">
-                                    <div class="j-designer-list">
-                                        <ul id="designer-list">
-                                            @foreach($designers as $item)
-                                                <li>
-                                                    <input id="d{{$item->id}}" type="checkbox" name="designers[]"  @if($request->has('designers') and in_array($item->id, $request->designers)) checked @endif value="{{$item->id}}" onchange="this.form.submit()">
-                                                    <label for="d{{$item->id}}">{{$item->title}}</label>
-                                                </li>
-                                            @endforeach
-
-                                        </ul>
-                                    </div>
-                                </div>
+                            <div class="j-mobile-submit">
+                                <div class="jm-submit"><button type="submit">Show filter</button></div>
+                                <div class="jm-submit"><span>Clear filter</span></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="j-filter-sort">
                         <div class="j-filter-item">
                             <div class="j-select-a">
                                 <select class="j-select j-sort" name="sort" onchange="this.form.submit()">
@@ -217,7 +237,7 @@
                 minimumResultsForSearch: -1,
                 width: '100%',
                 placeholder: "Sort",
-                allowClear: true
+                allowClear: true,
             });
 
             var slider = document.getElementById('j-slider');

@@ -50,8 +50,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-product m-md" data-target="#rate-pr">Rate the product</div>
                                 </div>
+                                <div class="rate-product m-md" data-target="#rate-pr">Rate the product</div>
                             </div>
                             <div class="product-share m-modal" id="rate-pr">
                                 <div class="ps-a">
@@ -113,8 +113,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-product">Rate the product</div>
                                 </div>
+                                <div class="rate-product">Rate the product</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -139,8 +139,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-product">Rate the product</div>
                                 </div>
+                                <div class="rate-product">Rate the product</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -165,8 +165,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-product">Rate the product</div>
                                 </div>
+                                <div class="rate-product">Rate the product</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -191,8 +191,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-product">Rate the product</div>
                                 </div>
+                                <div class="rate-product">Rate the product</div>
                             </div>
                         </div>
                         <div class="rw-item">
@@ -217,8 +217,8 @@
                                         </div>
                                         <div class="rv-date-b">Delivery Date: <span>July 19, 2024</span></div>
                                     </div>
-                                    <div class="rate-product">Rate the product</div>
                                 </div>
+                                <div class="rate-product">Rate the product</div>
                             </div>
                         </div>
                     </div>
