@@ -13,7 +13,7 @@ Facebook: https://fb.com/xetai.isayev
 .product-view-a .product-view-right {padding-left: 30px}
 }
 @media only screen and (max-width:1260px) {
-.main-slider-info-a .main-slider-title {font-size: 38px; line-height: 46px; max-width:580px;}
+.main-slider-info-a .main-slider-title, .hpw-info .hpw-info-a {font-size: 38px; line-height: 46px; max-width:580px;}
 }
 @media only screen and (max-width:1200px) {
 .product-view-a .product-view-left {float:none; max-width:100%; margin: 0 auto 40px; width:700px;}
@@ -37,7 +37,7 @@ Facebook: https://fb.com/xetai.isayev
 }
 @media only screen and (max-width:1000px) {
 .header-left .top-menu, .header-right .language, .h-items .h-item.h-favorite {display:none;}
-.main-slider-info-a .main-slider-title {font-size:30px; line-height: 38px; max-width:400px;}
+.main-slider-info-a .main-slider-title, .hpw-info .hpw-info-a {font-size:30px; line-height: 38px; max-width:400px;}
 .category-list {margin: 0 -10px;}
 .category-list .category-item {padding: 0 10px;}
 .category-info .ct-a {margin-bottom:6px;}
@@ -66,12 +66,12 @@ Facebook: https://fb.com/xetai.isayev
 .main-slider-image {position:relative;}
 .main-slider-image img {object-position: right;}
 .main-slider-image:after {content: ""; display:block; width:100%; height: 140px; position:absolute; left:0; bottom:0; background: linear-gradient(180deg, rgba(7, 0, 41, 0.00) 0%, #070029 100%)}
-.main-slider-info-a .main-slider-title {max-width:none;}
+.main-slider-info-a .main-slider-title, .hpw-info .hpw-info-a {max-width:none;}
 .main-slider .owl-nav {display:none;}
 .main-slider .owl-dots {display:block;}
 .categories, .products {padding: 48px 0;}
 .j-head {margin-bottom:28px;}
-.j-head .j-title {font-size:32px; line-height: 38px;}
+.j-head .j-title, .hw-extra-text .hw-extra-a {font-size:32px; line-height: 38px;}
 .j-head .j-desc {font-size:15px; line-height: 22px;}
 .category-list {margin-bottom: -20px;}
 .category-list .category-item {width:50%; padding-bottom:20px;}
@@ -120,9 +120,23 @@ Facebook: https://fb.com/xetai.isayev
 .j-filter-mob, .j-mobile-submit  {display:block;}
 .j-filter-list {margin: 0 -6px;}
 .j-md {width:100%;}
+.hpw-top .hpw-info {position:static; display:block; background-color: #fff; width:100%; padding: 16px 16px 32px; border-bottom: 1px solid #E6EBF5}
+.how-page-wrap .hi-image:not(.hi-n):before {content:none;}
+.how-page-wrap .hi-image:after {content:""; position:absolute; left:0; bottom:0; background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%); width:100%; height: 140px;}
+.hpw-info .hpw-info-a {color: #0B0139}
+.hpw-info .hpw-info-b {color: #13151A}
+.hpw-info .hpw-info-b br {display:none}
+.hpw-info .hpw-info-c, .hpw-info .hpw-info-c i {display:inline-block; vertical-align: top;}
+.hw-steps .hw-step-item, .bcm-items .bcm-item {width:100%; float:none; margin-bottom:24px;}
+.hw-steps .hw-step-item:last-child, .bcm-items .bcm-item:last-child {margin:0;}
+.hw-steps {padding-top:0;}
+.bc-check {flex-direction: column; max-width: 500px; margin:0 auto 96px;}
+.bc-check .bc-check-left {width:100%; min-width:0; margin-bottom: 16px;}
+.bc-check .bc-check-right {padding-left:0;}
 }
 @media only screen and (max-width:760px) {
 .product-list .product-item {width:50%;}
+.fcp-items .fcp-item {width:100%;}
 /* .product-list .product-item:nth-child(2n+1) {clear:both;}
 .product-list .product-item:nth-child(3n+1) {clear:none;} */
 }
@@ -140,12 +154,12 @@ Facebook: https://fb.com/xetai.isayev
 .header-left .logo a, .header-left .logo img {height: 32px;}
 .header-wrap .header-right {padding: 16px 0;}
 .main-slider-info .main-slider-info-a {padding-bottom: 56px;}
-.main-slider-info-a .main-slider-title {font-size:28px; line-height: 36px;}
+.main-slider-info-a .main-slider-title, .hpw-info .hpw-info-a {font-size:28px; line-height: 36px;}
 .main-slider-info-a .main-slider-desc br {display:none;}
 .main-slider .owl-dots {bottom:32px}
 .categories, .products {padding: 40px 0;}
 .j-head {margin-bottom:24px;}
-.j-head .j-title {font-size:28px; line-height: 36px;}
+.j-head .j-title, .hw-extra-text .hw-extra-a {font-size:28px; line-height: 36px;}
 .j-head .j-desc {font-size:14px; line-height: 20px;}
 .category-item-a .category-image {padding: 10px 0;}
 .category-list {margin: 0 -8px -16px;}
@@ -160,7 +174,7 @@ Facebook: https://fb.com/xetai.isayev
 .lg-page {padding: 48px 0;}
 .lg-page-wrap .lg-form {padding: 48px 16px}
 .about-page, .testimonials-page, .contact-page, .faq-page {padding: 24px 0 64px}
-.about-page .centered, .blog-view .centered, .contact-page .centered, .faq-page .centered {padding:0}
+.about-page .centered, .blog-view .centered, .contact-page .centered, .faq-page .centered, .how-page .centered {padding:0}
 .about-page .about-page-wrap, .blog-view .blog-view-wrap, .contact-page .contact-page-wrap, .faq-page .faq-page-wrap {padding: 32px 16px;}
 .bg-title, .my-profile-wrap .mpr-title {font-size:28px; line-height: 36px;}
 .my-profile-wrap .mpr-title {margin-bottom:16px;}
@@ -237,6 +251,13 @@ Facebook: https://fb.com/xetai.isayev
 .j-filter-list {margin: 0}
 .j-filter-list-wrap .j-filter-list-a {top: 56px}
 .j-filter-mob.j-filter-item {padding: 16px 40px 16px 48px;}
+.how-page {padding: 0 0 64px 0}
+.how-works-b {padding: 40px 16px 24px}
+.hw-steps {margin-bottom:32px;}
+.hw-extra-text {margin: 64px 0;}
+.hw-extra-text {padding: 32px 0;}
+.bcm-items, .bc-check, .fcp-block {margin-bottom:64px;}
+.fcp-items {padding: 32px 8px 8px}
 }
 @media only screen and (max-width:550px) {
 .rw-info .rv-extra {flex-direction: column;}

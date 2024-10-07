@@ -206,5 +206,15 @@ class HomeController extends Controller
         return view('site.product-reviews');
     }
 
+    public function howItWorks()
+    {
+        return view('site.how-it-works');
+    }
+
+    public function becomeVendor()
+    {
+        return view('site.become-a-vendor');
+    }
+
 }
 

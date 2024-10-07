@@ -9,7 +9,7 @@
                 <div class="top-menu">
                     <ul>
                         <li  @if(\Request::route() != null and \Request::route()->getName() == 'home') class="active " @endif><a href="{{route('home')}}">{{__('site.home')}}</a></li>
-                        <li><a href="/">{{__('site.how_it_works')}}</a></li>
+                        <li><a href="/how-it-works">{{__('site.how_it_works')}}</a></li>
                         <li @if(\Request::route() != null and \Request::route()->getName() == 'about') class="active " @endif><a href="{{route('about')}}" >{{__('site.about_us')}}</a></li>
                         <li  @if(\Request::route() != null and \Request::route()->getName() == 'products') class="active " @endif><a href="{{route('products')}}">{{__('site.jewelry')}}</a></li>
                     </ul>
@@ -89,7 +89,7 @@
             <ul>
                 <ul>
                     <li  @if(\Request::route() != null and \Request::route()->getName() == 'home') class="active " @endif><a href="{{route('home')}}">{{__('site.home')}}</a></li>
-                    <li><a href="/">{{__('site.how_it_works')}}</a></li>
+                    <li><a href="/how-it-works">{{__('site.how_it_works')}}</a></li>
                     <li @if(\Request::route() != null and \Request::route()->getName() == 'about') class="active " @endif><a href="{{route('about')}}" >{{__('site.about_us')}}</a></li>
                     <li  @if(\Request::route() != null and \Request::route()->getName() == 'products') class="active " @endif><a href="{{route('products')}}">{{__('site.jewelry')}}</a></li>
             </ul>
